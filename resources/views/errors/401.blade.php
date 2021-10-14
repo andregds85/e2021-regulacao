@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('limpolimpo.app')
 @section('content')
 
 <div class="alert alert-success" role="alert">
