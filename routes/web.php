@@ -20,10 +20,6 @@ use App\Http\Controllers\MedicoReguladorController;
 use App\Http\Controllers\obsMapaP2sController;
 
 
-
-
-
-
 Route::get('/', function () {
     return view('home');
 });
@@ -45,7 +41,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('manual', ManualController::class);
     Route::resource('macro', macro::class);
     Route::resource('mapasReg', mapasRegController::class);
-    Route::resource('incluirMapaP2s', IncluirMapaP2sController::class);
+    Route::resource('incluirMapaP2s', incluirMapaP2sController::class);
     Route::resource('continua', mapasRegController::class);
     Route::resource('vizualiza', mapasRegController::class);
     Route::resource('contar', contarController::class);
@@ -54,26 +50,14 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('regulador', MedicoReguladorController::class);
     Route::resource('observacao', obsMapaP2sController::class);
 
-
     Route::get('munipac', 'App\Http\Controllers\MunicipioController@paciente');
-    
     Route::get('excluir', 'App\Http\Controllers\contarController@show');
     Route::get('mapasfull', 'App\Http\Controllers\obsMapaP2sController@mapasFull');
 
-
-    
-    
-    
-
-
-
-
-    
-    /* url chamando um methodo do Controller 
+     /* url chamando um methodo do Controller 
     Route::get('pacienteMapa', 'App\Http\Controllers\mapasRegController@abc');
     */
 
-   
     Route::get('import_exportpacie', 'App\Http\Controllers\Import_Export_ControllerPacie@importExport');
     Route::post('importpacie', 'App\Http\Controllers\Import_Export_ControllerPacie@import');
     Route::get('exportpacie', 'App\Http\Controllers\Import_Export_ControllerPacie@export');

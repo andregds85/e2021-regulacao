@@ -1,4 +1,4 @@
-@extends('layouts3.app')
+@extends('limpo.app')
 @section('content')
     <div class="row">
         <div class="col-lg-12 margin-tb">

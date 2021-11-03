@@ -1,4 +1,4 @@
-@extends('layouts3.app')
+@extends('limpo.app')
 @section('content')
 <?php 
 $id=$_GET['id'];

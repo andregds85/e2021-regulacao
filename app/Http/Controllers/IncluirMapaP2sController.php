@@ -8,7 +8,7 @@ use App\Models\incluir_mapa_p2;
 use App\Models\Pacientes;
 
 
-class IncluirMapaP2sController extends Controller
+class incluirmapap2scontroller extends Controller
 {
 
     function __construct()
