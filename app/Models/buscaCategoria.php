@@ -9,7 +9,6 @@ class buscaCategoria extends Model
 {
 
     use HasFactory;
-
     protected $table="categorias";
 
 

@@ -22,7 +22,7 @@
     use App\Models\Categoria;
     use App\Models\Pacientes;
     $tabela = categoria::all();
-?>
+    ?>
     <table class="table table-bordered">
         <tr>
             <th>MAPA</th>
@@ -60,7 +60,10 @@
                 @endforeach
 	   <td>
        <p class="card-text">
+           <!--
        <a href="{{route('incluirMapaP2s.create', ['id' => $paciente->id]) }}">Próxima Etapa</a>
+
+            -->
        </p>
       </td>
 	    </tr>

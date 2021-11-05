@@ -13,7 +13,7 @@ use App\Http\Controllers\MacroController;
 use App\Http\Controllers\ManualController;
 use App\Http\Controllers\macro;
 use App\Http\Controllers\mapasRegController;
-use App\Http\Controllers\incluirMapaP2sController;
+use App\Http\Controllers\insertmController;
 use App\Http\Controllers\contarController;
 use App\Http\Controllers\MunicipioController;
 use App\Http\Controllers\MedicoReguladorController;
@@ -41,7 +41,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('manual', ManualController::class);
     Route::resource('macro', macro::class);
     Route::resource('mapasReg', mapasRegController::class);
-    Route::resource('incluirMapaP2s', incluirMapaP2sController::class);
+    Route::resource('incluirMapaP2s', insertmController::class);
     Route::resource('continua', mapasRegController::class);
     Route::resource('vizualiza', mapasRegController::class);
     Route::resource('contar', contarController::class);
@@ -65,6 +65,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('import_export', 'App\Http\Controllers\Import_Export_Controller@importExport');
     Route::post('import', 'App\Http\Controllers\Import_Export_Controller@import');
     Route::get('export', 'App\Http\Controllers\Import_Export_Controller@export');
+
+    
 
 });
 
