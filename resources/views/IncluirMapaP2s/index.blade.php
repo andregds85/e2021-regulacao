@@ -58,12 +58,9 @@
                     echo "</td>";
                 } ?>
                 @endforeach
-	   <td>
+       <td>
        <p class="card-text">
-           <!--
        <a href="{{route('incluirMapaP2s.create', ['id' => $paciente->id]) }}">Próxima Etapa</a>
-
-            -->
        </p>
       </td>
 	    </tr>
