@@ -7,12 +7,12 @@ use Illuminate\Http\Request;
 
 class MapasController extends Controller
 {
-      function __construct()
+    function __construct()
     {
-         $this->middleware('permission:mapas-list|mapas-create|mapas-edit|mapas-delete', ['only' => ['index','show']]);
-         $this->middleware('permission:mapas-create', ['only' => ['create','store']]);
-         $this->middleware('permission:mapas-edit', ['only' => ['edit','update']]);
-         $this->middleware('permission:mapas-delete', ['only' => ['destroy']]);
+         $this->middleware('permission:regulacao-list|regulacao-create|regulacao-edit|regulacao-delete', ['only' => ['index','show','__invoke']]);
+         $this->middleware('permission:regulacao-create', ['only' => ['create','store']]);
+         $this->middleware('permission:regulacao-edit', ['only' => ['edit','update']]);
+         $this->middleware('permission:regulacao-delete', ['only' => ['destroy']]);
     }
 
     public function index()

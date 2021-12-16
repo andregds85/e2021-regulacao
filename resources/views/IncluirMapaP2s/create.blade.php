@@ -2,7 +2,7 @@
 @section('content')
 <?php 
 $id=$_GET['id'];
-echo $id;
+$id;
 
 $m=Auth::user()->macro;
 
@@ -41,12 +41,7 @@ if($mpac<>$m){
 
 <p class="mb-0"></p>
 <br>
-  <div class="alert alert-success" role="alert">
-  <h4 class="alert-heading">Caso tenha retirado o paciente da Fila.</h4>
-  <p>E desistiu de continuar com a operação de vincular o paciente ao mapa</p>
-  <hr>
-  <p class="mb-0">Clique no botão abaixo para devolver o paciente a fila sem vinculação ao mapa.</p>
-</div>
+  
 
 <p class="mb-0"></p>
 <form action="{{ route('incluirMapaP2s.store') }}" method="POST">

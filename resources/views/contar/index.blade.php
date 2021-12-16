@@ -5,6 +5,7 @@ use App\Http\Controllers\MapasController;
 use App\Models\mapas;
 
 $perfil= Auth::user()->perfil;
+$regiao= Auth::user()->macro;
 
 
 if($perfil<>"regulacao"){
@@ -29,6 +30,15 @@ $itens  = mapas::where('id',$id)->get();
           <h6 class="card-title"><b></b></h6>
           <p class="card-text"><b> Id: {{$mapa->id }} </b></p>
           <?php $idm=$mapa->id; ?>
+          <?php $macro=$mapa->macro; 
+          
+          if ($regiao<>$macro){
+             session()->flush();
+          return view('home');
+          }
+          
+          ?>
+
           <p class="card-text"><b> Nome do Mapa: {{$mapa->nome }} </b></p>
           <p class="card-text"><b> Especialidade: {{$mapa->especialidade }} </b></p>
           <p class="card-text"><b> Procedimento: {{$mapa->procedimento }} </b></p>
@@ -84,10 +94,12 @@ $items  = incluir_mapa_p2::where('idMapa',$idm)->get();
        <a href="{{url('excluir', ['id' => $m->id]) }}">Excluir</a>
        </p>
       </td>
-
-            
+        
      </div>
     </div>
  
 @endforeach
 @endsection
+
+
+

@@ -29,7 +29,7 @@
 ?>
     <table class="table table-bordered">
         <tr>
-            <th>MAPA</th>
+            <th>ID</th>
             <th>Solicitação</th>
             <th>Hospital</th>
             <th width="280px">Ação</th>
@@ -45,7 +45,7 @@
 ?>	
     @foreach ($itensP as $paciente)
 	    <tr>
-            <td>{{$paciente->statusSolicitacao}}</td>
+            <td>{{$paciente->id}}</td>
             <td>{{$paciente->solicitacao }}</td>
             <?php $a=$paciente->categorias_id; ?>
 
