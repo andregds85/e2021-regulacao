@@ -20,9 +20,6 @@ $itensP2 =  incluir_mapa_p2::where('macro',$macro)->get();
 ?>
 
 
-
-
-
 <?php $hospUsr=Auth::user()->categorias_id; ?> 
 
 
@@ -143,8 +140,7 @@ $itensP2 =  incluir_mapa_p2::where('macro',$macro)->get();
 
 
 
-
-    <?php 
+<?php 
 $tabelap3 = mapahospital::all();              
 echo  $itensP = mapahospital::where('idp3',$t2->idMapa)->count();
      
