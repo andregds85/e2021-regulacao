@@ -49,10 +49,7 @@
                <?php $c=$item->name; ?>
                <?php $macroCategoria=$item->macro; ?>
             
-
                
-
-
               <?php
                 if($b==$a){
                     echo "<td>";

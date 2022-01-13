@@ -25,6 +25,7 @@
     use App\Models\Categoria;
     use App\Models\Pacientes;
 
+
     $tabela = categoria::all();
 ?>
     <table class="table table-bordered">
@@ -36,15 +37,28 @@
         </tr>
 <?php
 
-/*$itensP = pacientes::where('macro',$m)->get(); */
- $itensP = Pacientes::select("*")
+
+
+/*
+$itensP = pacientes::where('macro',$m)->get(); */
+
+$itensP = Pacientes::select("*")
 ->where([
 ["statusSolicitacao", "=", 'N'],
 ["macro", "=", "$m"]
-])->get();
+])->get(); 
+
+
 ?>	
+
+
+
+
+
+
     @foreach ($itensP as $paciente)
 	    <tr>
+                
             <td>{{$paciente->id}}</td>
             <td>{{$paciente->solicitacao }}</td>
             <?php $a=$paciente->categorias_id; ?>
@@ -60,6 +74,10 @@
                     echo "</td>";
                 } ?>
                 @endforeach
+
+
+
+
 	        <td>
             <form action="{{route('pacientes.destroy',$paciente->id) }}" method="POST">
                     <a class="btn btn-info" href="{{ route('pacientes.show',$paciente->id) }}">Mostrar</a>

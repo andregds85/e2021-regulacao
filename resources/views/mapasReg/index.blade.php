@@ -75,7 +75,6 @@ $todos= incluir_mapa_p2::all();
 
 
 
-
      <?php
    /*echo route('contar', ['id' => 1]); */
    /*
