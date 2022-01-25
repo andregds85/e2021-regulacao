@@ -18,11 +18,12 @@ class IncluirMapaP2sController extends Controller
          $this->middleware('permission:mapas-edit', ['only' => ['edit','update']]);
          $this->middleware('permission:mapas-delete', ['only' => ['destroy']]);
     }
-     public function index()
+   
+    public function index()
     {
         return view('IncluirMapaP2s.index');
     }
-   
+ 
     public function create()
     {
         return view('IncluirMapaP2s.create');
@@ -36,11 +37,15 @@ class IncluirMapaP2sController extends Controller
             'nomeUsuario' => 'required',
             'municipio' => 'required',
         ]);
-
+ 
        incluir_mapa_p2::create($request->all());
        Pacientes::where('id','idPaciente')->update(['statusSolicitacao' => 'S']);   
-       return redirect()->route('mapasReg.index')
+       return redirect()->route('retirapaciente.index')
                         ->with('Sucesso','Paciente Incluido no Mapa com Sucesso.');
+
+
+
+                       
     }
     
 }

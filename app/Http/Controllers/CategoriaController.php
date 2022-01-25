@@ -22,11 +22,15 @@ class CategoriaController extends Controller
         return view('categorias.index',compact('categorias'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
-      public function create()
+   
+    public function create()
     {
         return view('categorias.create');
     }
-     public function store(Request $request)
+    
+  
+    
+    public function store(Request $request)
     {
         request()->validate([
             'name' => 'required',

@@ -19,6 +19,12 @@ use App\Http\Controllers\MunicipioController;
 use App\Http\Controllers\MedicoReguladorController;
 use App\Http\Controllers\obsMapaP2sController;
 use App\Http\Controllers\FinalizandoMapaController;
+use App\Http\Controllers\retiraPacienteController;
+
+
+
+
+
 
 Route::get('/', function () {
     return view('home');
@@ -50,7 +56,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('regulador', MedicoReguladorController::class);
     Route::resource('observacao', obsMapaP2sController::class);
     Route::resource('finalizando', FinalizandoMapaController::class);
-
+    Route::resource('retirapaciente', retiraPacienteController::class);
 
     Route::get('munipac', 'App\Http\Controllers\MunicipioController@paciente');
     Route::get('excluir', 'App\Http\Controllers\contarController@show');
@@ -65,10 +71,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('import_export', 'App\Http\Controllers\Import_Export_Controller@importExport');
     Route::post('import', 'App\Http\Controllers\Import_Export_Controller@import');
     Route::get('export', 'App\Http\Controllers\Import_Export_Controller@export');
-
-
-    
-
+ 
 });
 
 

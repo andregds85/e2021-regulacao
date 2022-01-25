@@ -25,7 +25,6 @@
     use App\Models\Categoria;
     use App\Models\Pacientes;
 
-
     $tabela = categoria::all();
 ?>
     <table class="table table-bordered">
@@ -37,8 +36,6 @@
         </tr>
 <?php
 
-
-
 /*
 $itensP = pacientes::where('macro',$m)->get(); */
 
@@ -48,13 +45,7 @@ $itensP = Pacientes::select("*")
 ["macro", "=", "$m"]
 ])->get(); 
 
-
 ?>	
-
-
-
-
-
 
     @foreach ($itensP as $paciente)
 	    <tr>

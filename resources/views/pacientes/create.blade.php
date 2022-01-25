@@ -41,7 +41,6 @@
                     use App\Models\Categoria;
                     $tabela = categoria::all();
                     $m=Auth::user()->macro;
-
                     $itensP = categoria::where('macro',$m)->get();
 
                 ?>
@@ -98,16 +97,12 @@
            </div>
 
 
-
-
           <div class="row">
 		    <div class="col-xs-12 col-sm-12 col-md-12">
 		        <div class="form-group">
 		            <strong>Nome do Municipio:</strong>
 		            <input type="text" name="municipio" class="form-control" placeholder="Entre com o Nome do Municipio">
            </div>
-
-
 
 
           <div class="row">
@@ -183,8 +178,6 @@
             </div>
         </div>
         </div>
-
-
 
 
       <fieldset class="form-group">

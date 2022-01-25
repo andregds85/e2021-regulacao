@@ -70,7 +70,6 @@ $tabelaM = mapas::where('macro',$m)->get();
 </div>
 
 
-
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
@@ -81,6 +80,14 @@ $tabelaM = mapas::where('macro',$m)->get();
             </div>
         </div>
 </div>
+
+<?php
+session_start();
+
+$_SESSION['id'] = $id;
+
+
+?>
 
 
 <div class="row">
@@ -183,4 +190,6 @@ $cpfUsuarioSistema=Auth::user()->cpf;
 		</div>
     </form>
 @endsection
+
+
 
