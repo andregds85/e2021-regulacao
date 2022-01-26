@@ -106,9 +106,7 @@ $itensP2 =  incluir_mapa_p2::where('macro',$macro)->get();
   </tbody>
 </table>
 
-
 @foreach ($itensP2  as $t2)
-
 
 <table class="table table-bordered">
   <tbody>
@@ -140,14 +138,16 @@ $itensP2 =  incluir_mapa_p2::where('macro',$macro)->get();
 
 
 
+
+
 <?php 
 $tabelap3 = mapahospital::all();              
-echo  $itensP = mapahospital::where('idp3',$t2->idMapa)->count();
-     
-/*
-if ($itensP==0) { ?>
- <a class="btn btn-info" href="{{ url('mapahosp',$t2->idMapa) }}">Inserir Complemento no Mapa</a>              
- <?php    } */ 
+echo  $observacao = mapahospital::where('idp3',$t2->idMapa)->count();
+
+  if($observacao==0){
+    echo "Falta o municipio inserir a Observação";
+  }
+  
 ?>
 
 
@@ -155,18 +155,6 @@ if ($itensP==0) { ?>
 
 
 
-
-
-
-<?php 
-$tabelap3 = mapahospital::all();              
-echo  $itensP = mapahospital::where('idp3',$t2->idMapa)->count();
-     
-/*
-if ($itensP==0) { ?>
- <a class="btn btn-info" href="{{ url('mapahosp',$t2->idMapa) }}">Inserir Complemento no Mapa</a>              
- <?php    } */ 
-?>
    
   </td>
     </tr>

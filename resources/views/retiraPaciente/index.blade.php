@@ -19,23 +19,29 @@ $tabelap2 = incluir_mapa_p2::all();
 $itensP2 =  incluir_mapa_p2::where('macro',$macro)->get(); 
 ?>
 
+
 <?php $hospUsr=Auth::user()->categorias_id; ?> 
 
 
 <?php
 session_start();
 $id=$_SESSION['id'];
+pacientes::find($id)->update(['statusSolicitacao' => 'S']);  
 
- pacientes::find($id)->update(['statusSolicitacao' => 'S']);  
+
 
 ?>
+
+
 
 <div class="alert alert-light" role="alert">
 Paciente do ID <?php echo $id; ?> Retira da Lista e Incluso no Mapa
 </div>
 
 </h1>
-      
+
+
+
 
       <!-- JavaScript (Opcional) -->
     <!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->
@@ -43,8 +49,7 @@ Paciente do ID <?php echo $id; ?> Retira da Lista e Incluso no Mapa
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
   </body>
-
-    </html>
+  </html>
 
 
 @endsection
