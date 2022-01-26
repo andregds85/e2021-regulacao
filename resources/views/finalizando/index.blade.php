@@ -135,11 +135,6 @@ $itensP2 =  incluir_mapa_p2::where('macro',$macro)->get();
     <b> Macro:</b> {{$t->macro}}<br>
 
 
-
-
-
-
-
 <?php 
 $tabelap3 = mapahospital::all();              
 echo  $observacao = mapahospital::where('idp3',$t2->idMapa)->count();
@@ -149,6 +144,35 @@ echo  $observacao = mapahospital::where('idp3',$t2->idMapa)->count();
   }
   
 ?>
+
+<br>
+
+<?php 
+$tabelap3 = mapahospital::all();              
+$ob = mapahospital::where('idp3',$t2->idMapa);
+
+?>
+
+
+@foreach ($ob as $o)
+<b>Observação:</b>{{$o->idp3 }}<br>
+<b>Observação do Hospital</b>{{$o->obsHospital }}<br>
+
+
+@endforeach 
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -161,9 +185,9 @@ echo  $observacao = mapahospital::where('idp3',$t2->idMapa)->count();
   </tbody>
 </table>
 
+
+
 @endforeach
-
-
 
 
 
