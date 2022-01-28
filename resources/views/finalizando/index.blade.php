@@ -1,4 +1,4 @@
-@extends('layouts3.app')
+@extends('limpo.app')
 @section('content')
 <?php 
 use App\Models\mapas;
@@ -136,21 +136,20 @@ $itensP2 =  incluir_mapa_p2::where('macro',$macro)->get();
 
 
 <?php 
-$tabelap3 = mapahospital::all();              
-echo  $observacao = mapahospital::where('idp3',$t2->idMapa)->count();
+$tabelap3 = municipio_mapa_p3::all();              
+echo  $observacao = municipio_mapa_p3::where('idp2',$t2->idMapa)->count();
 
   if($observacao==0){
     echo "Falta o municipio inserir a Observação";
   }
-  
 ?>
 
+
+
 <br>
-
 <?php 
-$tabelap3 = mapahospital::all();              
-$ob = mapahospital::where('idp3',$t2->idMapa);
-
+$tabelap3 = municipio_mapa_p3::all();              
+$ob = municipio_mapa_p3::where('idp2',$t2->idMapa);
 ?>
 
 
@@ -159,26 +158,9 @@ $ob = mapahospital::where('idp3',$t2->idMapa);
 <b>Observação do Hospital</b>{{$o->obsHospital }}<br>
 
 
+
+
 @endforeach 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
    
   </td>
     </tr>
@@ -186,11 +168,7 @@ $ob = mapahospital::where('idp3',$t2->idMapa);
 </table>
 
 
-
 @endforeach
-
-
-
 
       <!-- JavaScript (Opcional) -->
     <!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->
