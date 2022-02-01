@@ -136,28 +136,24 @@ $itensP2 =  incluir_mapa_p2::where('macro',$macro)->get();
 
 
 <?php 
-$tabelap3 = municipio_mapa_p3::all();              
-echo  $observacao = municipio_mapa_p3::where('idp2',$t2->idMapa)->count();
+$tabelap3 = municipio_mapa_p3::all();
+$vbobserv = municipio_mapa_p3::where('idPaciente',$t2->idPaciente)->get();
+
+echo  $observacao = municipio_mapa_p3::where('idPaciente',$t2->idPaciente)->count();
 
   if($observacao==0){
     echo "Falta o municipio inserir a Observação";
-  }
-?>
-
+  }?>
 
 
 <br>
 <?php 
-$tabelap3 = municipio_mapa_p3::all();              
 $ob = municipio_mapa_p3::where('idp2',$t2->idMapa);
 ?>
 
-
-@foreach ($ob as $o)
-<b>Observação:</b>{{$o->idp3 }}<br>
-<b>Observação do Hospital</b>{{$o->obsHospital }}<br>
-
-
+@foreach ($vbobserv as $o)
+<b>vbobserv:</b>{{$o->id }}<br>
+<b>Observação do Municipio:</b>{{$o->observacao }}<br>
 
 
 @endforeach 
