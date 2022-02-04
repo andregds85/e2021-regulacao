@@ -20,12 +20,6 @@ if($perfil<>"municipal"){
    <div><td>Macro:</td><td> {{ Auth::user()->macro}}</td> </div>
   <?php $macroUsr=Auth::user()->macro; ?> 
 
-
-
-
-
-
-
  <?php
 use App\Models\incluir_mapa_p2;
 use App\Http\Controllers\IncluirMapaP2sController;

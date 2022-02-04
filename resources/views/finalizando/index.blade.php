@@ -10,6 +10,7 @@ use App\Models\mapahospital;
 use App\Models\municipio_mapa_p3;
 
 
+
 $macro=Auth::user()->macro; 
 
 $tabela = mapas::all(); 
@@ -66,8 +67,6 @@ $itensP2 =  incluir_mapa_p2::where('macro',$macro)->get();
   </tbody>
 </table>
 
-
-
   <table class="table table-bordered">
   <tbody>
     <tr>
@@ -77,8 +76,6 @@ $itensP2 =  incluir_mapa_p2::where('macro',$macro)->get();
 
             <?php $hosptb=$t->categoria_id; ?>
        
-
-
            <b>Nome do Mapa:</b>{{$t->nome }}<br>
            <b>Descrição:</b>{{$t->descricao }}<br>
      <b>Especialidade: </b> {{$t->especialidade }}<br>
@@ -138,6 +135,7 @@ $itensP2 =  incluir_mapa_p2::where('macro',$macro)->get();
 $tabelap3 = municipio_mapa_p3::all();
 $vbobserv = municipio_mapa_p3::where('idp2',$t2->id)->get();
 
+
 echo  $observacao = municipio_mapa_p3::where('idp2',$t2->id)->count();
 
   if($observacao==0){
@@ -149,16 +147,46 @@ echo  $observacao = municipio_mapa_p3::where('idp2',$t2->id)->count();
 <b>Id do Registro / Observação Municipio:</b>{{$o->id }}<br>
 <b>Observação do Municipio:</b>{{$o->observacao }}<br>
 <b>Id paciente:</b>{{$o->idPaciente }}<br>
+<b>Id Referencia:</b>{{$o->idp2 }}<br>
+
+<?php 
+
+$tab = mapahospital::all();
+$hosp = mapahospital::where('idp3',$o->idp2)->get();
+
+
+/*
+echo  $observacao = mapahospital::where('idp2',$ref)->count();
+
+  if($observacao==0){
+    echo "Falta o municipio inserir a Observação";
+  }  */ ?>
+<br>
+	
+
+@foreach ($hosp as $o1)
+<b>Id Referencia:</b>{{$o1->idp3 }}<br>
+<b>Prontuário do Hospital:</b>{{$o1->prontuarioHospital }}<br>
+<b>Data da Cirurgia:</b>{{$o1->prontuarioHospital }}<br>
+<b>Observação do Hospital:</b>{{$o1->obsHospital }}<br>
+<b>Realizou Cirurgia Sim / Não </b>{{$o1->realizou }}<br>
+<b>Usuário:</b>{{$o1->usuario }}<br>
+
+
+
+@endforeach
 @endforeach 
+
   </td>
     </tr>
   </tbody>
 </table>
 
 
+
 @endforeach
 
-      <!-- JavaScript (Opcional) -->
+     <!-- JavaScript (Opcional) -->
     <!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
@@ -172,4 +200,11 @@ echo  $observacao = municipio_mapa_p3::where('idp2',$t2->id)->count();
     </html>
 
 @endsection
+
+
+
+
+
+
+
 
