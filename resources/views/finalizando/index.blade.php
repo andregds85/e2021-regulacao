@@ -171,6 +171,7 @@ echo  $observacao = mapahospital::where('idp2',$ref)->count();
 <b>Observação do Hospital:</b>{{$o1->obsHospital }}<br>
 <b>Realizou Cirurgia Sim / Não </b>{{$o1->realizou }}<br>
 <b>Usuário:</b>{{$o1->usuario }}<br>
+<b><a class="btn btn-info" href="{{ route('final.show',$o1->id) }}">Finalizar Mapa</a>
 
 
 

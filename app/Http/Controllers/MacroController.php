@@ -32,7 +32,6 @@ class MacroController extends Controller
         return view('macros.create');
     }
 
-   
     public function store(Request $request)
     {
         request()->validate([

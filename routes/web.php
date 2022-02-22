@@ -20,6 +20,8 @@ use App\Http\Controllers\MedicoReguladorController;
 use App\Http\Controllers\obsMapaP2sController;
 use App\Http\Controllers\FinalizandoMapaController;
 use App\Http\Controllers\retiraPacienteController;
+use App\Http\Controllers\finalMapsController;
+
 
 
 
@@ -57,6 +59,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('observacao', obsMapaP2sController::class);
     Route::resource('finalizando', FinalizandoMapaController::class);
     Route::resource('retirapaciente', retiraPacienteController::class);
+    Route::resource('final', finalMapsController::class);
+
 
     Route::get('munipac', 'App\Http\Controllers\MunicipioController@paciente');
     Route::get('excluir', 'App\Http\Controllers\contarController@show');
