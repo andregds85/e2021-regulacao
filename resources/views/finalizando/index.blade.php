@@ -1,6 +1,7 @@
 @extends('limpo.app')
 @section('content')
 <?php 
+
 use App\Models\mapas;
 use App\Http\Controllers\MapasController;
 use App\Http\Controllers\mapahospitalController;
@@ -93,7 +94,6 @@ $itensP2 =  incluir_mapa_p2::where('macro',$macro)->get();
   </tbody>
 </table>
 
-
 <table class="table table-bordered">
   <tbody>
     <tr>
@@ -122,6 +122,8 @@ $itensP2 =  incluir_mapa_p2::where('macro',$macro)->get();
            <b>Data da Inserção :</b>{{$t2->created_at }}<br>
 
            <b>CNS:</b>{{$t2->cns }}<br>
+
+          
            <b>Municipio:</b>{{$t2->municipio }}<br>
      <b>Usuario do Sistema: </b> {{$t2->usuarioSistema }}<br>
      </td>
@@ -171,6 +173,7 @@ echo  $observacao = mapahospital::where('idp2',$ref)->count();
 <b>Observação do Hospital:</b>{{$o1->obsHospital }}<br>
 <b>Realizou Cirurgia Sim / Não </b>{{$o1->realizou }}<br>
 <b>Usuário:</b>{{$o1->usuario }}<br>
+
 <b><a class="btn btn-info" href="{{ route('final.show',$o1->id) }}">Finalizar Mapa</a>
 
 
