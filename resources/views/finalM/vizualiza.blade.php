@@ -25,9 +25,7 @@ $hosp = mapahospital::where('id',$id)->get();
 <b>Data da Cirurgia:</b>{{$o1->prontuarioHospital }}<br>
 <b>Observação do Hospital:</b>{{$o1->obsHospital }}<br>
 <b>Realizou Cirurgia Sim / Não </b>{{$o1->realizou }}<br>
-
 @endforeach
-
 <?php
 $muni = municipio_mapa_p3::all();
 $municipio = municipio_mapa_p3::where('idp2',$o1->idp3)->get();
@@ -52,38 +50,54 @@ $regula = incluir_mapa_p2::all();
 $regulacao2 = incluir_mapa_p2::where('id',$o->idp2)->get();
 ?>
 
-
+<br>
+<br>
+<b>Preenchimento pelo Regulação</b><br>
+<br>
 
 
 @foreach ($regulacao2  as $t2)
-
-<table class="table table-bordered">
-  <tbody>
     <tr>
       <td><b>Id do Mapa:</b>{{$t2->idMapa }} <br>
            <b>Id do Paciente:</b>{{$t2->idPaciente }}<br>
            <b>Código da Solicitação: </b> {{$t2->codSolicitacao }}<br>
            <b>Data da Inserção :</b>{{$t2->created_at }}<br>
-
            <b>CNS:</b>{{$t2->cns }}<br>
-
-          
            <b>Municipio:</b>{{$t2->municipio }}<br>
      <b>Usuario do Sistema: </b> {{$t2->usuarioSistema }}<br>
      </td>
      <td>
-
     <b> Nome do Usuário: </b> {{$t2->nomeUsuario}}<br>
     <b> CPF do Usuário:</b> {{$t2->cpfUsuarioSistema}}<br>
     <b> Macro:</b> {{$t2->macro}}<br>
-
-    
-
     @endforeach
+<br>
+<br>
+<b>Criado pelo Hospital / Dados do Mapa</b><br>
+<br>
+
+<?php
+$mapa = mapas::all();
+$mapaEsp = mapas::where('id',$t2->idMapa)->get();
+?>
+
+
+@foreach ($mapaEsp as $t3)
+    <tr>
+      <td><b>Id do Mapa:</b>{{$t3->categoria_id }} <br>
+           <b>Nome:</b>{{$t3->nome }}<br>
+           <b>Descrição: </b> {{$t3->descricao }}<br>
+           <b>Especialidade:</b>{{$t3->especialidade }}<br>
+           <b>Código do Procedimento:</b>{{$t3->cod_procedimento}}<br>
+           <b>Procedimento:</b>{{$t3->procedimento }}<br>
+     <b>Vagas: </b> {{$t3->vagas }}<br>
+     </td>
+     <td>
+ @endforeach
 
 
 
-
+ 
 
 @endsection
 

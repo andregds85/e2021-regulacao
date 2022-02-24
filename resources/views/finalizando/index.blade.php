@@ -43,21 +43,31 @@ $itensP2 =  incluir_mapa_p2::where('macro',$macro)->get();
 
   </head>
 <body>
-<table class="table table-bordered">
-  <tbody>
-    <tr>
-    <td>
-    <img src="http://www.cerintersc.com.br/content/img/logo.png" width="100" height="100"> 
-</td>
-      <td align="center"><b>
-      <br>Estado de Santa Catarina
-      <br>Secretaria de Estado da Saúde 
-      <br>Cirurgias Eletivas <br>
-      Dados do Mapa </b>
-     </td>
-     </tr>
-  </tbody>
-</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <table class="table table-bordered">
   <tbody>
