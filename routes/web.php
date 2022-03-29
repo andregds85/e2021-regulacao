@@ -21,10 +21,7 @@ use App\Http\Controllers\obsMapaP2sController;
 use App\Http\Controllers\FinalizandoMapaController;
 use App\Http\Controllers\retiraPacienteController;
 use App\Http\Controllers\finalMapsController;
-
-
-
-
+use App\Http\Controllers\encerraController;
 
 
 
@@ -60,6 +57,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('finalizando', FinalizandoMapaController::class);
     Route::resource('retirapaciente', retiraPacienteController::class);
     Route::resource('final', finalMapsController::class);
+    Route::resource('confirma', encerraController::class);
+
 
 
     Route::get('munipac', 'App\Http\Controllers\MunicipioController@paciente');
@@ -77,7 +76,4 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('export', 'App\Http\Controllers\Import_Export_Controller@export');
  
 });
-
-
-
 

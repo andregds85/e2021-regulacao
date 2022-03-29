@@ -1,6 +1,9 @@
 @extends('limpo.app')
 @section('content')
 <?php 
+session_start();
+
+
 use App\Models\mapas;
 use App\Http\Controllers\MapasController;
 use App\Http\Controllers\mapahospitalController;
@@ -12,6 +15,15 @@ use App\Models\municipio_mapa_p3;
 echo $id;
 echo "<br>";
 
+?>
+
+
+<p class="card-text">
+<a href="{{url('confirma', ['id' => $id]) }}">Confirmação</a>
+</p>
+
+
+<?php
 $tab = mapahospital::all();
 $hosp = mapahospital::where('id',$id)->get();
 
@@ -63,6 +75,7 @@ $regulacao2 = incluir_mapa_p2::where('id',$o->idp2)->get();
            <b>Código da Solicitação: </b> {{$t2->codSolicitacao }}<br>
            <b>Data da Inserção :</b>{{$t2->created_at }}<br>
            <b>CNS:</b>{{$t2->cns }}<br>
+           <?php $seCns=$_SESSION["cns"] =$t2->cns; ?>
            <b>Municipio:</b>{{$t2->municipio }}<br>
      <b>Usuario do Sistema: </b> {{$t2->usuarioSistema }}<br>
      </td>
@@ -94,9 +107,9 @@ $mapaEsp = mapas::where('id',$t2->idMapa)->get();
      </td>
      <td>
  @endforeach
+ 
 
-
-
+ 
  
 
 @endsection

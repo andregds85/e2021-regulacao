@@ -3,9 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\mapas;
+use App\Models\finalMaps;
+
+
+
+
 use Illuminate\Http\Request;
 
-class finalMapsController extends Controller
+class encerraController extends Controller
 {
     function __construct()
     {
@@ -37,10 +42,9 @@ class finalMapsController extends Controller
     */
     }
 
-  
       public function show($id){ 
 
-        return view('finalM.vizualiza',['id'=>$id]); 
+        return view('finalM.cadastrar',['id'=>$id]); 
         
        }
    
@@ -56,7 +60,6 @@ class finalMapsController extends Controller
     {
         /*
         request()->validate([
-
    ]);
 
         $mapa->update($request->all());
