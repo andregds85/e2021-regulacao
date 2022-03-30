@@ -45,30 +45,6 @@ $itensP2 =  incluir_mapa_p2::where('macro',$macro)->get();
 <body>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <table class="table table-bordered">
   <tbody>
     <tr>
@@ -166,7 +142,6 @@ echo  $observacao = municipio_mapa_p3::where('idp2',$t2->id)->count();
 $tab = mapahospital::all();
 $hosp = mapahospital::where('idp3',$o->idp2)->get();
 
-
 /*
 echo  $observacao = mapahospital::where('idp2',$ref)->count();
 
@@ -183,8 +158,7 @@ echo  $observacao = mapahospital::where('idp2',$ref)->count();
 <b>Observação do Hospital:</b>{{$o1->obsHospital }}<br>
 <b>Realizou Cirurgia Sim / Não </b>{{$o1->realizou }}<br>
 <b>Usuário:</b>{{$o1->usuario }}<br>
-
-<b><a class="btn btn-info" href="{{ route('final.show',$o1->id) }}">Finalizar Mapa</a>
+<b><a class="btn btn-info" href="{{ route('final.show',$o1->id)}}">Finalizar Mapa</a>
 
 
 

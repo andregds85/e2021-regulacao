@@ -12,19 +12,27 @@ use App\Models\incluir_mapa_p2;
 use App\Models\mapahospital;
 use App\Models\municipio_mapa_p3;
 
+
+
+
 echo $id;
-echo "<br>";
+
+$senha=$id;
+$hash = base64_encode($senha);
+$hash;
+
+
 
 ?>
 
 
 <p class="card-text">
-<a href="{{url('confirma', ['id' => $id]) }}">Confirmação</a>
+<a href="{{url('confirma', ['id' => $hash]) }}">Confirmação</a>
 </p>
 
 
 <?php
-$tab = mapahospital::all();
+$tab  = mapahospital::all();
 $hosp = mapahospital::where('id',$id)->get();
 
 ?>
@@ -73,6 +81,8 @@ $regulacao2 = incluir_mapa_p2::where('id',$o->idp2)->get();
       <td><b>Id do Mapa:</b>{{$t2->idMapa }} <br>
            <b>Id do Paciente:</b>{{$t2->idPaciente }}<br>
            <b>Código da Solicitação: </b> {{$t2->codSolicitacao }}<br>
+           <?php $codSolicitacao=$_SESSION["codSolicitacao"] =$t2->codSolicitacao; ?>
+
            <b>Data da Inserção :</b>{{$t2->created_at }}<br>
            <b>CNS:</b>{{$t2->cns }}<br>
            <?php $seCns=$_SESSION["cns"] =$t2->cns; ?>
