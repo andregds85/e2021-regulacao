@@ -30,17 +30,14 @@ if($perfil<>"regulacao"){
 use App\Http\Controllers\MapasController;
 use App\Models\mapas;
 
-
 use App\Http\Controllers\IncluirMapaP2sController;
 use App\Models\incluir_mapa_p2;
 
 $tabela = mapas::all(); 
 $itens = mapas::where('macro',$macroUsr)->get();
-
 /*
 $todos= incluir_mapa_p2::all(); 
 */
-
 ?>
 
 @if ($message = Session::get('success'))
@@ -67,7 +64,7 @@ $todos= incluir_mapa_p2::all();
   
        <td>
        <p class="card-text">
-       <a href="{{route('contar.index', ['id' => $mapa->id]) }}">Próxima Etapa</a>
+       <a href="{{route('contar.index', ['id' => $mapa->id]) }}">Detalhamento</a>
        </p>
       </td>
      </td>

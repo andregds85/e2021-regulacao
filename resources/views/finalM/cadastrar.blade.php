@@ -19,18 +19,18 @@ $codSolicitacao=$_SESSION["codSolicitacao"];
                 <div class="card-header">{{ __('PREENCHIMENTO PELA CENTRAL DE REGULAÇÃO') }}</div>
 
                 <div class="card-body">
-                <form action="" method="POST" id="validate" enctype="multipart/form-data" NAME="regform"
+                <form action="{{ route('final.store') }}" method="POST" id="validate" enctype="multipart/form-data" NAME="regform"
     onsubmit="return valida()">
  
                         @csrf
 
 
+
+                        
 <?php 
 
-/*
-use App\Models\Checklist;
-use App\Http\Controllers\ChecklistController;
-*/
+use App\Models\finalMaps;
+use App\Http\Controllers\finalMapsController;
 ?>
 
  
@@ -41,7 +41,6 @@ use App\Http\Controllers\ChecklistController;
                         </div>
 
 
-
     
     <div class="container">
     <div class="row justify-content-center">
@@ -50,7 +49,6 @@ use App\Http\Controllers\ChecklistController;
                 <div class="card-header">{{ __('Dados finais do Mapa ') }}</div>
 
                 <div class="card-body">
-
 
 
                           <!--  id -->
@@ -105,14 +103,13 @@ use App\Http\Controllers\ChecklistController;
                             </div>
                         </div>
 
-
   
                         
                           <!--  Código da solicitação  -->
                           <div class="form-group row">
                             <label for="nome" class="col-md-4 col-form-label text-md-right">{{ __('Codigo da Solicitação') }}</label>
                             <div class="col-md-6">
-                                <input id="codSolicitacao" type="text" class="form-control @error('codSolicitacao') is-invalid @enderror" name="codSolicitacao" required autocomplete="id" value="<?php echo  $codSolicitacao; ?>"readonly>
+                                <input id="codSolicitacao" type="text" class="form-control @error('codSolicitacao') is-invalid @enderror" name="codSisReg" required autocomplete="id" value="<?php echo  $codSolicitacao; ?>"readonly>
                                 @error('codSolicitacao')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -120,7 +117,6 @@ use App\Http\Controllers\ChecklistController;
                                 @enderror
                             </div>
                         </div>
-
 
 
 
@@ -138,12 +134,7 @@ use App\Http\Controllers\ChecklistController;
                         </div>
 
 
-  
-   
-
-  
-
-                  
+                     
 
 
 

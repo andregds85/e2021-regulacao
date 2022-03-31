@@ -3,12 +3,16 @@
 <?php 
 
 use App\Models\mapas;
+use App\Models\finalMaps;
+
+
 use App\Http\Controllers\MapasController;
 use App\Http\Controllers\mapahospitalController;
 
 use App\Models\incluir_mapa_p2;
 use App\Models\mapahospital;
 use App\Models\municipio_mapa_p3;
+
 
 
 
@@ -45,7 +49,7 @@ $itensP2 =  incluir_mapa_p2::where('macro',$macro)->get();
 <body>
 
 
-<table class="table table-bordered">
+<table class="table table-sm table-dark">
   <tbody>
     <tr>
        <td align="center"><b> Mapa criado pelo hospital</b></td>
@@ -54,7 +58,7 @@ $itensP2 =  incluir_mapa_p2::where('macro',$macro)->get();
   </tbody>
 </table>
 
-  <table class="table table-bordered">
+<table class="table table-sm table-dark">
   <tbody>
     <tr>
       <td><b>Id do Mapa:</b>{{$t->id }} <br>
@@ -79,6 +83,7 @@ $itensP2 =  incluir_mapa_p2::where('macro',$macro)->get();
     </tr>
   </tbody>
 </table>
+
 
 <table class="table table-bordered">
   <tbody>
@@ -131,6 +136,7 @@ echo  $observacao = municipio_mapa_p3::where('idp2',$t2->id)->count();
   }?>
 <br>
 	
+
 @foreach ($vbobserv as $o)
 <b>Id do Registro / Observação Municipio:</b>{{$o->id }}<br>
 <b>Observação do Municipio:</b>{{$o->observacao }}<br>
@@ -150,7 +156,6 @@ echo  $observacao = mapahospital::where('idp2',$ref)->count();
   }  */ ?>
 <br>
 	
-
 @foreach ($hosp as $o1)
 <b>Id Referencia:</b>{{$o1->idp3 }}<br>
 <b>Prontuário do Hospital:</b>{{$o1->prontuarioHospital }}<br>
@@ -158,8 +163,17 @@ echo  $observacao = mapahospital::where('idp2',$ref)->count();
 <b>Observação do Hospital:</b>{{$o1->obsHospital }}<br>
 <b>Realizou Cirurgia Sim / Não </b>{{$o1->realizou }}<br>
 <b>Usuário:</b>{{$o1->usuario }}<br>
-<b><a class="btn btn-info" href="{{ route('final.show',$o1->id)}}">Finalizar Mapa</a>
 
+<?php
+   $final= finalMaps::where('idp4',$o1->id)->count();
+
+        if ($final==0){ ?> 
+        <b><a class="btn btn-info" href="{{ route('final.show',$o1->id)}}">Finalizar Mapa</a>   <?php 
+   }
+
+
+
+?>
 
 
 @endforeach
@@ -188,11 +202,6 @@ echo  $observacao = mapahospital::where('idp2',$ref)->count();
     </html>
 
 @endsection
-
-
-
-
-
 
 
 
