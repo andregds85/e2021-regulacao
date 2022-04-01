@@ -12,7 +12,6 @@ if($perfil<>"regulacao"){
 
 
 
-
 <!-- Passo 1 !-->
   <div class="card mb-3">
       <div class="card-body">
@@ -67,6 +66,22 @@ $todos= incluir_mapa_p2::all();
        <a href="{{route('contar.index', ['id' => $mapa->id]) }}">Detalhamento</a>
        </p>
       </td>
+<?php 
+
+
+
+?>
+
+      <td>
+       <p class="card-text">
+       <a href="{{url('listar', ['id' => base64_encode($mapa->id)]) }}">Listar o Mapa Completo</a>
+       </p>
+      </td>
+
+
+
+
+
      </td>
 
 
