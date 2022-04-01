@@ -25,7 +25,6 @@ $itensP = mapas::where('id',$cod)->get();
 $tabelap2 = incluir_mapa_p2::all(); 
 $itensP2 =  incluir_mapa_p2::where('macro',$macro)->get(); 
 
-
 ?>
 
 <?php $hospUsr=Auth::user()->categorias_id; ?> 
@@ -86,7 +85,6 @@ $itensP2 =  incluir_mapa_p2::where('macro',$macro)->get();
   </tbody>
 </table>
 
-
 <table class="table table-bordered">
   <tbody>
     <tr>
@@ -113,11 +111,8 @@ $itensP2 =  incluir_mapa_p2::where('macro',$macro)->get();
            <b>Id do Paciente:</b>{{$t2->idPaciente }}<br>
            <b>Código da Solicitação: </b> {{$t2->codSolicitacao }}<br>
            <b>Data da Inserção :</b>{{$t2->created_at }}<br>
-
            <b>CNS:</b>{{$t2->cns }}<br>
-
-          
-           <b>Municipio:</b>{{$t2->municipio }}<br>
+          <b>Municipio:</b>{{$t2->municipio }}<br>
      <b>Usuario do Sistema: </b> {{$t2->usuarioSistema }}<br>
      </td>
      <td>
@@ -176,17 +171,14 @@ echo  $observacao = mapahospital::where('idp2',$ref)->count();
    }
 
 ?>
-
 <br>
 
-    
-    @foreach ($final1 as $fm)
+     @foreach ($final1 as $fm)
     <b>Id Referencia:</b>{{$fm->idp4 }}<br>
     <b>Observações da Central:</b>{{$fm->obsCentral }}<br>
     <b>Status do Sisreg</b>{{$fm->statusSisreg }}<br>
     <b>Codigo do  Sisreg:</b>{{$fm->codSisReg }}<br>
     <b>CNS:</b>{{$fm->cns }}<br>
-  
 
     @endforeach
 
@@ -197,8 +189,6 @@ echo  $observacao = mapahospital::where('idp2',$ref)->count();
     </tr>
   </tbody>
 </table>
-
-
 
 @endforeach
 
