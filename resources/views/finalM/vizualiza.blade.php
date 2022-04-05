@@ -14,7 +14,6 @@ use App\Models\municipio_mapa_p3;
 
 
 
-
 echo $id;
 
 $senha=$id;

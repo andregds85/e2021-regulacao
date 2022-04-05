@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class finalMaps extends Model
 {
     use HasFactory;
-    protected $table="finalMaps";
+    protected $table="finalmaps";
     protected $fillable = [
         'idp4',
         'obsCentral',
