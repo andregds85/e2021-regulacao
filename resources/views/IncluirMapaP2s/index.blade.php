@@ -1,5 +1,12 @@
 @extends('layouts3.app')
 @section('content')
+
+
+<div class="container">
+
+
+
+
 <!-- Passo 1 !-->
   <div class="card mb-3">
       <div class="card-body">
@@ -27,7 +34,6 @@
             <th>ID</th>
             <th>Solicitação</th>
             <th>Hospital</th>
-            <th width="280px">Ação</th>
         </tr>
 <?php
 
@@ -54,10 +60,8 @@
                 if($b==$a){
                     echo "<td>";
                     echo "$c";
-                    echo "</td>";
                 } ?>
                 @endforeach
-       <td>
        <p class="card-text">
        <a href="{{route('incluirMapaP2s.create', ['id' => $paciente->id]) }}">Próxima Etapa</a>
        </p>
@@ -67,6 +71,6 @@
     </table>
 @endsection
 
-
+</div>
 
 

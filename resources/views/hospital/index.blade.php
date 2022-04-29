@@ -1,6 +1,9 @@
 @extends('layouts3.app')
 @section('content')
 
+
+<div class="container">
+
     @if ($message = Session::get('success'))
         <div class="alert alert-success">
             <p>{{ $message }}</p>
@@ -36,10 +39,5 @@
     </table>
 
 
-
-
-
-
-
-<p class="text-center text-primary"><small>Hospital</small></p>
 @endsection
+</div>

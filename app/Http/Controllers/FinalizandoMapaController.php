@@ -14,7 +14,7 @@ class FinalizandoMapaController extends Controller
          $this->middleware('permission:regulacao-edit', ['only' => ['edit','update']]);
          $this->middleware('permission:regulacao-delete', ['only' => ['destroy']]);
     }
-       
+     
     
     public function index()
     {

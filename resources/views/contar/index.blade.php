@@ -8,6 +8,9 @@ $perfil= Auth::user()->perfil;
 $regiao= Auth::user()->macro;
 
 
+?>
+<div class="container">
+<?php 
 if($perfil<>"regulacao"){
   session()->flush();
 }
@@ -100,6 +103,5 @@ $items  = incluir_mapa_p2::where('idMapa',$idm)->get();
  
 @endforeach
 @endsection
-
-
+        </div>
 

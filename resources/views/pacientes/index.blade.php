@@ -1,6 +1,8 @@
 @extends('layouts3.app')
 @section('content')
 
+<div class="container">
+
 <div><td>Macro:</td><td> {{ Auth::user()->macro}}</td> </div>
 <?php $m=Auth::user()->macro; ?>
 
@@ -29,10 +31,8 @@
 ?>
     <table class="table table-bordered">
         <tr>
-            <th>ID</th>
             <th>Solicitação</th>
             <th>Hospital</th>
-            <th width="280px">Ação</th>
         </tr>
 <?php
 
@@ -50,8 +50,8 @@ $itensP = Pacientes::select("*")
     @foreach ($itensP as $paciente)
 	    <tr>
                 
-            <td>{{$paciente->id}}</td>
-            <td>{{$paciente->solicitacao }}</td>
+            <td><b>{{$paciente->id}}</b> /
+            {{$paciente->solicitacao }}</td>
             <?php $a=$paciente->categorias_id; ?>
 
                 @foreach($tabela as $item)
@@ -62,14 +62,10 @@ $itensP = Pacientes::select("*")
                 if($b==$a){
                     echo "<td>";
                     echo "$c";
-                    echo "</td>";
                 } ?>
                 @endforeach
 
-
-
-
-	        <td>
+	        
             <form action="{{route('pacientes.destroy',$paciente->id) }}" method="POST">
                     <a class="btn btn-info" href="{{ route('pacientes.show',$paciente->id) }}">Mostrar</a>
                     <a class="btn btn-primary" href="{{ route('pacientes.edit',$paciente->id) }}">Editar</a>
@@ -77,7 +73,6 @@ $itensP = Pacientes::select("*")
                     @csrf
                     @method('DELETE')
                     @can('pacientes-delete')
-                    <button type="submit" class="btn btn-danger">Apagar</button>
                     @endcan
                 </form>
 	        </td>
@@ -85,6 +80,11 @@ $itensP = Pacientes::select("*")
 	    @endforeach
     </table>
 
-    {!! $pacientes->links() !!}
-<p class="text-center text-primary"><small>Pacientes</small></p>
+
+
+<div class="container">
+{!! $pacientes->links() !!}
+</div>    
+
+
 @endsection

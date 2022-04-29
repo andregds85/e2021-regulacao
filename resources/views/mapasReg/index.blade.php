@@ -10,6 +10,7 @@ if($perfil<>"regulacao"){
 
 ?> </b></p>
 
+<div class="container">
 
 
 <!-- Passo 1 !-->
@@ -95,8 +96,10 @@ $todos= incluir_mapa_p2::all();
      ?>
         </div>
       </div>
+
 	    @endforeach
 @endsection
 
 
 
+</div>
