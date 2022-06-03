@@ -1,9 +1,6 @@
 @extends('layouts3.app')
 @section('content')
-
-
 <div class="container">
-
 
 
 
@@ -32,10 +29,17 @@
     <table class="table table-bordered">
         <tr>
             <th>ID</th>
-            <th>Solicitação</th>
+            <th>Codigo</th>
             <th>Hospital</th>
         </tr>
 <?php
+
+
+
+
+
+
+
 
 /*$itensP = pacientes::where('macro',$m)->get(); */
  $itensP = Pacientes::select("*")
@@ -44,33 +48,46 @@
 ["macro", "=", "$m"]
 ])->get();
 ?>	
+
+<form action="{{route('incluirMapaP2s.create') }}" method="get">
+
     @foreach ($itensP as $paciente)
 	    <tr>
-            <td>{{$paciente->id}}</td>
-            <td>{{$paciente->solicitacao }}</td>
+            <td>
+
+            <input type="checkbox" name="grupo_chk[]" value='{{$paciente->id}}'>
+ 
+        </td>
+           
+            <?php $selected='grupo_chk[]'; ?>                 
+    
+            <td>{{$paciente->codigo }}</td>
             <?php $a=$paciente->categorias_id; ?>
 
                 @foreach($tabela as $item)
                <?php $b=$item->id; ?>
                <?php $c=$item->name; ?>
                <?php $macroCategoria=$item->macro; ?>
-            
-               
+       
               <?php
                 if($b==$a){
                     echo "<td>";
                     echo "$c";
                 } ?>
-                @endforeach
-       <p class="card-text">
-       <a href="{{route('incluirMapaP2s.create', ['id' => $paciente->id]) }}">Próxima Etapa</a>
-       </p>
-      </td>
+       
+       @endforeach
+  
+    </td>
 	    </tr>
 	    @endforeach
     </table>
-@endsection
 
+       <input type="submit" name="Enviar" value="Cadastrar">
+</form>
+
+@endsection
 </div>
+
+
 
 
