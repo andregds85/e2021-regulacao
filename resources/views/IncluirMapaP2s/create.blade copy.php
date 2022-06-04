@@ -3,9 +3,12 @@
 <?php 
 
 
-$rec=$_GET['grupo_chk'];
+<div class="container">
+<?php
+print_r ($rec=$_GET['grupo_chk']);
 
-echo $rec;
+?>
+</div>
 
 
 
@@ -139,13 +142,10 @@ $_SESSION['id'] = $id;
         </div>
 </div> 
 
-
-
 <?php 
 $usuarioSistema=Auth::user()->email; 
 $cpfUsuarioSistema=Auth::user()->cpf;
 ?>
-
 
 
 <div class="row">
