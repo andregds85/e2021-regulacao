@@ -93,8 +93,6 @@ $tabelaM = mapas::where('macro',$m)->get();
 <p id='demo'></p>
 
 
-    
-
 <?php
 
 foreach( $rec as $paciente ) {
@@ -104,8 +102,13 @@ foreach( $rec as $paciente ) {
       $b="<p id='demo'></p>";
       echo $b; 
 
-      Pacientes::where('id',$paciente)->update(['statusSolicitacao' => 'S']);   
 
+      DB::table('incluir_mapa_p2s')->insert([
+	    ['idMapa' => 1, 'idPaciente' => $paciente],
+	    ]);
+
+
+      Pacientes::where('id',$paciente)->update(['statusSolicitacao' => 'S']);   
 
 }
 
