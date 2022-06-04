@@ -12,14 +12,6 @@ class incluir_mapa_p2 extends Model
     protected $fillable = [
         'idMapa',
         'idPaciente',
-        'codSolicitacao',
-        'cns',
-        'nomeUsuario',
-        'municipio',
-        'usuarioSistema',
-        'cpfUsuarioSistema',
-        'macro',
-        'obs',
       ];
 }
 
