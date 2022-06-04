@@ -72,27 +72,34 @@ $tabelaM = mapas::where('macro',$m)->get();
                 <label for="exampleInputCategoria">id do Mapa / Id do Hospital / Nome do Mapa</label>
                 <select class="form-control" name="idMapa" id="mySelect" onchange="myFunction()">
                 <option> Escolha o Mapa</option>
-
+               
                 @foreach ($tabelaM as $mapas)
                 <option value='{{$mapas->id }}'> {{$mapas->id }} {{$mapas->categoria_id}}{{$mapas->nome }}</option>
+            
+
                 @endforeach
                 </select>
             </div>
         </div>
 </div>
 
-
 <p id='demo'></p>
 
 
     
 
+<?php
+
+foreach( $rec as $paciente ) {
+
+      echo $paciente;
+      echo "<br>";
+      $b="<p id='demo'></p>";
+      echo $b; 
+}
 
 
-
-
-
-
+?>
 
 
 

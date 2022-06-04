@@ -31,11 +31,7 @@ class IncluirMapaP2sController extends Controller
      public function store(Request $request)
     {
             request()->validate([
-            'idPaciente' => 'required',
-            'codSolicitacao' => 'required',
-            'cns' => 'required',
-            'nomeUsuario' => 'required',
-            'municipio' => 'required',
+       
         ]);
  
        incluir_mapa_p2::create($request->all());
