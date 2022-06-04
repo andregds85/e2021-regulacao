@@ -39,14 +39,10 @@ class IncluirMapaP2sController extends Controller
        return redirect()->route('retirapaciente.index')
                         ->with('Sucesso','Paciente Incluido no Mapa com Sucesso.');
 
-
-
                        
     }
     
 }
-
-
 
 
 
