@@ -20,6 +20,13 @@ use App\Models\Pacientes;
 $tabela = Pacientes::all();
 $itensP = Pacientes::where('id',$rec)->get();
 
+use App\Models\incluir_mapa_p2;
+
+
+
+
+
+
 ?>
 @foreach ($itensP as $paciente)
 <?php $mpac=$paciente->macro; ?>
@@ -96,6 +103,10 @@ foreach( $rec as $paciente ) {
       echo "<br>";
       $b="<p id='demo'></p>";
       echo $b; 
+
+      Pacientes::where('id',$paciente)->update(['statusSolicitacao' => 'S']);   
+
+
 }
 
 
