@@ -59,8 +59,6 @@ $tabelaMapa = mapas::all();
 $tabelaM = mapas::where('macro',$m)->get();
 ?>
 
-
-
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
@@ -70,7 +68,6 @@ $tabelaM = mapas::where('macro',$m)->get();
                
                 @foreach ($tabelaM as $mapas)
                 <option value='{{$mapas->id }}'> {{$mapas->id }} {{$mapas->categoria_id}}{{$mapas->nome }}</option>
-            
 
                 @endforeach
                 </select>
@@ -83,13 +80,15 @@ $tabelaM = mapas::where('macro',$m)->get();
 
 
 
+
+
+
+
     @foreach ($itensP as $paciente)
 	    <tr>
             <td>
-
             <input type="checkbox" name="grupo_chk[]" value='{{$paciente->id}}'>
- 
-        </td>
+         </td>
            
             <?php $selected='grupo_chk[]'; ?>                 
     
