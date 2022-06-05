@@ -51,6 +51,41 @@
 
 <form action="{{route('incluirMapaP2s.create') }}" method="get">
 
+
+<?php 
+
+$m=Auth::user()->macro;
+
+
+use App\Models\mapas;
+$tabelaMapa = mapas::all();
+$tabelaM = mapas::where('macro',$m)->get();
+?>
+
+
+
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+                <label for="exampleInputCategoria">id do Mapa / Id do Hospital / Nome do Mapa</label>
+                <select class="form-control" name="idMapa" id="mySelect" onchange="myFunction()">
+                <option> Escolha o Mapa</option>
+               
+                @foreach ($tabelaM as $mapas)
+                <option value='{{$mapas->id }}'> {{$mapas->id }} {{$mapas->categoria_id}}{{$mapas->nome }}</option>
+            
+
+                @endforeach
+                </select>
+            </div>
+        </div>
+</div>
+
+
+
+
+
+
     @foreach ($itensP as $paciente)
 	    <tr>
             <td>
