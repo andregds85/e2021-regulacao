@@ -1,8 +1,8 @@
 @extends('limpo.app')
 @section('content')
 
-
 <div class="container">
+
 <?php
 
 $idMapa=$_GET['idMapa'];
@@ -43,14 +43,12 @@ foreach( $rec as $paciente ) {
       DB::table('incluir_mapa_p2s')->insert([
 	    ['idMapa' => $idMapa, 'idPaciente' => $paciente,'macro'=>$m],
 	    ]);
-
       Pacientes::where('id',$paciente)->update(['statusSolicitacao' => 'S']);   
-
 }
-
-
 ?>
   
+
+
 @endsection
 
 </div>

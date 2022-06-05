@@ -51,11 +51,8 @@
 
 <form action="{{route('incluirMapaP2s.create') }}" method="get">
 
-
 <?php 
-
 $m=Auth::user()->macro;
-
 
 use App\Models\mapas;
 $tabelaMapa = mapas::all();
