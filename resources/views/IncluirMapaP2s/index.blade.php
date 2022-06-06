@@ -116,6 +116,7 @@ $tabelaMapa = mapas::all();
 $tabelaM = mapas::where('macro',$m)->get();
 ?>
 
+
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
@@ -134,7 +135,7 @@ $tabelaM = mapas::where('macro',$m)->get();
 
 
 
-
+d
 
     @foreach ($itensP as $paciente)
 	    <tr>
