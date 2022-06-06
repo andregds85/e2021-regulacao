@@ -23,6 +23,10 @@ use App\Http\Controllers\retiraPacienteController;
 use App\Http\Controllers\finalMapsController;
 use App\Http\Controllers\encerraController;
 use App\Http\Controllers\listarMapaController;
+use App\Http\Controllers\pesquisaController;
+
+
+
 
 
 Route::get('/', function () {
@@ -59,6 +63,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('final', finalMapsController::class);
     Route::resource('confirma', encerraController::class);
     Route::resource('listar', listarMapaController::class);
+    Route::resource('pesquisar', pesquisaController::class);
+
 
 
     
@@ -81,4 +87,6 @@ Route::group(['middleware' => ['auth']], function() {
 
  
 });
+
+
 
