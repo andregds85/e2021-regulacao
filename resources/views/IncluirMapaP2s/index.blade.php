@@ -1,5 +1,45 @@
 @extends('layouts3.app')
 @section('content')
+
+<SCRIPT> 
+<!--
+function valida()
+{
+    
+    /* Valida do Formulário Acesso Venoso Central */ 
+    if (document.pesquisa.idMapa.value.length == 0 )   
+    {
+    alert('Está pesquisando um Código, então escolha essa opção no Mapa ');
+    pesquisa.idMapa.focus();
+    return false;
+    }
+
+return true;
+}
+//-->
+</SCRIPT>
+
+
+
+
+
+
+<script>
+function onlynumber(evt) {
+   var theEvent = evt || window.event;
+   var key = theEvent.keyCode || theEvent.which;
+   key = String.fromCharCode( key );
+   //var regex = /^[0-9.,]+$/;
+   var regex = /^[0-9.]+$/;
+   if( !regex.test(key) ) {
+      theEvent.returnValue = false;
+      if(theEvent.preventDefault) theEvent.preventDefault();
+   }
+}
+</script>
+
+
+
 <div class="container">
 
 <!-- Passo 1 !-->
@@ -14,7 +54,7 @@
 
         
     <div class="box-body">
-    <form action="{{ url('pesquisar') }}" method="GET" enctype="multipart/form-data" NAME="regform"
+    <form action="{{ url('pesquisar') }}" method="GET" enctype="multipart/form-data" NAME="pesq"
     onsubmit="return valida()">
         <div class="form-group">
             <label for="nome" class="col-sm-1 control-label"> SigTap</label>
@@ -27,15 +67,6 @@
         </div>
     </form>
 </div>
-
-
-
-
-
-
-
-
-
 
 
 
@@ -75,7 +106,7 @@
 ])->get();
 ?>	
 
-<form action="{{route('incluirMapaP2s.create') }}" method="get">
+<form action="{{route('incluirMapaP2s.create') }}" method="get" name="pesquisa"  onsubmit="return valida()">
 
 <?php 
 $m=Auth::user()->macro;
@@ -90,11 +121,10 @@ $tabelaM = mapas::where('macro',$m)->get();
         <div class="form-group">
                 <label for="exampleInputCategoria">id do Mapa / Id do Hospital / Nome do Mapa</label>
                 <select class="form-control" name="idMapa" id="mySelect" onchange="myFunction()">
-                <option> Escolha o Mapa</option>
-               
+                <option></option>
+                <option>Estou Pesquisando um código sigtap</option>
                 @foreach ($tabelaM as $mapas)
                 <option value='{{$mapas->id }}'> {{$mapas->id }} {{$mapas->categoria_id}}{{$mapas->nome }}</option>
-
                 @endforeach
                 </select>
             </div>
@@ -109,7 +139,7 @@ $tabelaM = mapas::where('macro',$m)->get();
     @foreach ($itensP as $paciente)
 	    <tr>
             <td>
-            <input type="checkbox" name="grupo_chk[]" value='{{$paciente->id}}'>
+            <input type="checkbox" name="grupo_chk[]" value='{{$paciente->id}}'> 
          </td>
            
             <?php $selected='grupo_chk[]'; ?>                 
@@ -140,6 +170,5 @@ $tabelaM = mapas::where('macro',$m)->get();
 
 @endsection
 </div>
-
 
 
