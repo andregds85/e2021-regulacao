@@ -14,9 +14,8 @@
 <?php 
 
 $pesquisa=$_GET["p_nome"];
-
-
 echo $pesquisa;
+
 
 
 ?>
