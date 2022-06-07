@@ -10,18 +10,17 @@
         </div>
     </div>
 
+    <?php
+$nome=$_GET['p_nome'];
 
-<?php 
+use App\Http\Controllers\PacienteController;
+use App\Models\Pacientes;
 
-$pesquisa=$_GET["p_nome"];
-echo $pesquisa;
-
-
-
-?>
-
+$tabela = Pacientes::all();
+$tabela2 = Pacientes::where('codigo', 'LIKE', '%' . $nome . '%')->get();
 
 
+?> 
 
         
     <div class="box-body">
@@ -41,15 +40,6 @@ echo $pesquisa;
 
 
 
-
-
-
-
-
-
-
-
-
     <div><td>Macro:</td><td> {{ Auth::user()->macro}}</td> </div>
     <?php $m=Auth::user()->macro; ?>
 
@@ -64,7 +54,6 @@ echo $pesquisa;
 
     <?php
     use App\Models\Categoria;
-    use App\Models\Pacientes;
     $tabela = categoria::all();
     ?>
     <table class="table table-bordered">
@@ -75,13 +64,11 @@ echo $pesquisa;
         </tr>
 <?php
 
-
-
-
 /*$itensP = pacientes::where('macro',$m)->get(); */
  $itensP = Pacientes::select("*")
 ->where([
-["statusSolicitacao", "=", 'N'],
+['codigo', 'LIKE', '%' . $nome . '%'],
+
 ["macro", "=", "$m"]
 ])->get();
 ?>	

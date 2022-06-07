@@ -23,6 +23,13 @@ class pesquisaController extends Controller
         return view('IncluirMapaP2s.pesquisa');
     }
 
+    public function pesquisa($p_nome){
+        $produtos = DB::table('checklist')
+                ->where('nome', 'like',  "%" .$p_nome)
+                ->get();
+        return view('checklistadm.pesquisa');
+    }
+
 
     
     

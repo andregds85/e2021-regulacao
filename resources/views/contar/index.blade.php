@@ -87,11 +87,9 @@ $items  = incluir_mapa_p2::where('idMapa',$idm)->get();
    <p class="card-text"><b> Id do Registro: {{$m->id }} </b></p>
             <?php $idReg=$m->id; ?>
           <h5 class="card-title"><b>Id do Paciente: {{$m->idPaciente}}</b></h5>
+
           <h6 class="card-title"><b></b></h6>
           <p class="card-text"><b> Id do Mapa: {{$m->idMapa }} </b></p>
-          <p class="card-text"><b> Código da Solicitacao: {{$m->codSolicitacao }} </b></p>
-          <p class="card-text"><b> CNS: {{$m->cns }} </b></p>
-          <p class="card-text"><b> Nome do Usuário: {{$m->nomeUsuario}} </b></p>
        <td>
        <p class="card-text">
        <a href="{{url('excluir', ['id' => $m->id]) }}">Excluir</a>

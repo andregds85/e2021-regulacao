@@ -134,8 +134,6 @@ $tabelaM = mapas::where('macro',$m)->get();
 
 
 
-
-
     @foreach ($itensP as $paciente)
 	    <tr>
             <td>
