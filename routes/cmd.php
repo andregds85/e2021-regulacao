@@ -24,3 +24,23 @@ git commit -m "commit message"
 
 git push -u origin master
 git push --force origin main
+
+
+
+Gerenciamento dos Tokens 
+
+https://github.com/settings/tokens
+
+
+CMD Linux importates para Deploy 
+
+
+/* Apagar Diretório no Linux com tudo Dentro */ 
+rm -rf nome do diretorio 
+
+
+/* Renomear um diretorio */ 
+mv nome do diretorio novoNomedodiretorio
+
+
+
