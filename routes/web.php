@@ -1,5 +1,6 @@
 <?php
 
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RoleController;
@@ -24,6 +25,7 @@ use App\Http\Controllers\finalMapsController;
 use App\Http\Controllers\encerraController;
 use App\Http\Controllers\listarMapaController;
 use App\Http\Controllers\pesquisaController;
+use App\Http\Controllers\pesquisaHospSigController;
 
 
 
@@ -64,10 +66,10 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('confirma', encerraController::class);
     Route::resource('listar', listarMapaController::class);
     Route::resource('pesquisar', pesquisaController::class);
+    Route::resource('sigtaphosp', pesquisaHospSigController::class);
 
 
 
-    
 
 
     Route::get('munipac', 'App\Http\Controllers\MunicipioController@paciente');

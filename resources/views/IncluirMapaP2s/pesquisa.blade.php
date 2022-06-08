@@ -6,9 +6,7 @@
   <div class="card mb-3">
       <div class="card-body">
         <h5 class="card-title"><b>Lista de pacientes sem mapas </b></h5>
-        <h6 class="card-title"><b></b></h6>
-        </div>
-    </div>
+  
 
     <?php
 $nome=$_GET['p_nome'];
@@ -37,7 +35,6 @@ $tabela2 = Pacientes::where('codigo', 'LIKE', '%' . $nome . '%')->get();
         </div>
     </form>
 </div>
-
 
 
     <div><td>Macro:</td><td> {{ Auth::user()->macro}}</td> </div>
@@ -139,5 +136,7 @@ $tabelaM = mapas::where('macro',$m)->get();
 @endsection
 </div>
 
-
+<h6 class="card-title"><b></b></h6>
+        </div>
+    </div>
 

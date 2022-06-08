@@ -22,8 +22,6 @@ return true;
 
 
 
-
-
 <script>
 function onlynumber(evt) {
    var theEvent = evt || window.event;
@@ -40,19 +38,80 @@ function onlynumber(evt) {
 
 
 
+
 <div class="container">
+<!-- Passo 1 !-->
+  <div class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title"><b>Lista de pacientes sem mapas </b></h5><br><br>
+        <h6 class="card-title"><b></b></h6>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container">
+<!-- Passo 1 !-->
+  <div class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title"><b>Pesquisa de pacientes utilizando código SigTap e Hospital </h5>
+         <form>
+<br><br>
+
+
+<?php
+    use App\Models\Categoria;
+    $hosp = categoria::all();
+?>
+
+
+<div><td>Macro:</td><td> {{Auth::user()->macro}}</td> </div>
+<?php $m=Auth::user()->macro; ?>
+<?php $hosp1 = Categoria::where('macro',$m)->get(); ?> 
+
+
+<div class="form-group">
+    <label for="exampleFormControlSelect1">Hospital</label>
+    <select class="form-control" id="exampleFormControlSelect1" name='hospital'>
+      <option>Escolha o Hospital</option>
+      @foreach($hosp1 as $item1)
+        <option value='$item1->id'>{{ $item1->id }}{{ $item1->name }}</option>
+        @endforeach
+    </select>
+  </div>
+ 
+
+
+
+</form>
+
+
+
+
+
+
+
+        <h6 class="card-title"><b></b></h6>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+    <div class="container">
 
 <!-- Passo 1 !-->
   <div class="card mb-3">
       <div class="card-body">
-        <h5 class="card-title"><b>Lista de pacientes sem mapas </b></h5>
-        <h6 class="card-title"><b></b></h6>
-        </div>
-    </div>
 
 
 
-        
+
+       
     <div class="box-body">
     <form action="{{ url('pesquisar') }}" method="GET" enctype="multipart/form-data" NAME="pesq"
     onsubmit="return valida()">
@@ -81,9 +140,7 @@ function onlynumber(evt) {
     @endif
 
 
-
     <?php
-    use App\Models\Categoria;
     use App\Models\Pacientes;
     $tabela = categoria::all();
     ?>
@@ -94,8 +151,6 @@ function onlynumber(evt) {
             <th>Hospital</th>
         </tr>
 <?php
-
-
 
 
 /*$itensP = pacientes::where('macro',$m)->get(); */
@@ -134,7 +189,7 @@ $tabelaM = mapas::where('macro',$m)->get();
 
 
 
-    @foreach ($itensP as $paciente)
+        @foreach ($itensP as $paciente)
 	    <tr>
             <td>
             <input type="checkbox" name="grupo_chk[]" value='{{$paciente->id}}'> 
@@ -168,5 +223,11 @@ $tabelaM = mapas::where('macro',$m)->get();
 
 @endsection
 </div>
+
+
+<h6 class="card-title"><b></b></h6>
+        </div>
+    </div>
+
 
 
