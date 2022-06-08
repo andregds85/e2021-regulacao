@@ -71,6 +71,8 @@ function onlynumber(evt) {
 <?php $hosp1 = Categoria::where('macro',$m)->get(); ?> 
 
 
+<form action="{{ url('sigtaphosp') }}" method="POST" enctype="multipart/form-data" NAME="pesq12"
+    onsubmit="return valida1()">
 <div class="form-group">
     <label for="exampleFormControlSelect1">Hospital</label>
     <select class="form-control" id="exampleFormControlSelect1" name='hospital'>
@@ -82,20 +84,23 @@ function onlynumber(evt) {
   </div>
  
 
+  <div class="form-group">
+  <label for="inputPassword5">Sigtap</label>
+  <input type="text" id="inputPassword5" class="form-control" name="sigtap">
 
+  </div>
+  <input type="submit" class="btn btn-outline-primary" name="Enviar" value="Pesquisar">
 
 </form>
 
-
-
-
-
-
-
-        <h6 class="card-title"><b></b></h6>
+       <h6 class="card-title"><b></b></h6>
         </div>
     </div>
 </div>
+
+
+
+
 
 
 
@@ -121,7 +126,8 @@ function onlynumber(evt) {
                 <input type="text" class="form-control" name="p_nome" value="" id="nome" placeholder="informe o Sigtap">
             </div>
             <div class="col-sm-4">
-                <button type="submit" class="btn btn-default">Pesquisar </button>                    
+                <input type="submit" class="btn btn-outline-primary" name="Enviar" value="Pesquisar">
+                   
             </div>
         </div>
     </form>
@@ -217,8 +223,10 @@ $tabelaM = mapas::where('macro',$m)->get();
 	    </tr>
 	    @endforeach
     </table>
+    <br>
 
-       <input type="submit" name="Enviar" value="Cadastrar">
+
+       <input type="submit" class="btn btn-outline-primary" name="Enviar" value="Cadastrar">
 </form>
 
 @endsection

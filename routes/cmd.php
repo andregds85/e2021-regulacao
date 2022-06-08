@@ -8,8 +8,8 @@ https://www.atlassian.com/br/git/tutorials/syncing/git-push
 
 Comandos de Identificação 
 
-git config --global user.name "Fulano de Tal"
-git config --global user.email fulanodetal@exemplo.br
+git config --global user.name "André "
+git config --global user.email andregds85@gmail.com 
 
 
 
