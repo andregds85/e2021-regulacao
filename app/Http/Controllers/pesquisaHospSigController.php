@@ -23,13 +23,9 @@ class pesquisaHospSigController extends Controller
         return view('IncluirMapaP2s.hospitalSigTap');
     }
 
-    public function pesquisa($p_nome){
-        $produtos = DB::table('checklist')
-                ->where('nome', 'like',  "%" .$p_nome)
-                ->get();
-        return view('checklistadm.pesquisa');
-    }
 
+
+    
 
     
     

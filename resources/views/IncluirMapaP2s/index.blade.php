@@ -56,7 +56,6 @@ function onlynumber(evt) {
   <div class="card mb-3">
       <div class="card-body">
         <h5 class="card-title"><b>Pesquisa de pacientes utilizando código SigTap e Hospital </h5>
-         <form>
 <br><br>
 
 
@@ -65,61 +64,47 @@ function onlynumber(evt) {
     $hosp = categoria::all();
 ?>
 
-
 <div><td>Macro:</td><td> {{Auth::user()->macro}}</td> </div>
 <?php $m=Auth::user()->macro; ?>
 <?php $hosp1 = Categoria::where('macro',$m)->get(); ?> 
 
-
-<form action="{{ url('sigtaphosp') }}" method="POST" enctype="multipart/form-data" NAME="pesq12"
-    onsubmit="return valida1()">
 <div class="form-group">
+<form action="{{ url('/sigtaphosp') }}" method="GET" enctype="multipart/form-data" NAME="outro">
+
     <label for="exampleFormControlSelect1">Hospital</label>
     <select class="form-control" id="exampleFormControlSelect1" name='hospital'>
       <option>Escolha o Hospital</option>
       @foreach($hosp1 as $item1)
-        <option value='$item1->id'>{{ $item1->id }}{{ $item1->name }}</option>
+        <option value='{{ $item1->id }}'>{{ $item1->id}}{{ $item1->name }}</option>
         @endforeach
     </select>
   </div>
  
+
 
   <div class="form-group">
   <label for="inputPassword5">Sigtap</label>
   <input type="text" id="inputPassword5" class="form-control" name="sigtap">
 
   </div>
-  <input type="submit" class="btn btn-outline-primary" name="Enviar" value="Pesquisar">
 
-</form>
-
-       <h6 class="card-title"><b></b></h6>
+  <input type="submit" class="btn btn-outline-primary" name="Enviar" value="Cadastrar">
+       
+  <h6 class="card-title"><b></b></h6>
         </div>
     </div>
 </div>
+</form>
 
 
 
-
-
-
-
-
-
-
-    <div class="container">
-
+<div class="container">
 <!-- Passo 1 !-->
   <div class="card mb-3">
       <div class="card-body">
-
-
-
-
        
     <div class="box-body">
-    <form action="{{ url('pesquisar') }}" method="GET" enctype="multipart/form-data" NAME="pesq"
-    onsubmit="return valida()">
+    <form action="{{ url('pesquisar') }}" method="GET" enctype="multipart/form-data" NAME="pesq" onsubmit="return valida()">
         <div class="form-group">
             <label for="nome" class="col-sm-1 control-label"> SigTap</label>
             <div class="col-sm-4">

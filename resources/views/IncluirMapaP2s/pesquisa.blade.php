@@ -1,5 +1,29 @@
 @extends('layouts3.app')
 @section('content')
+
+
+
+<SCRIPT> 
+<!--
+function valida()
+{
+    
+    /* Valida do Formulário Acesso Venoso Central */ 
+    if (document.pesquisa.idMapa.value.length == 0 )   
+    {
+    alert('Está pesquisando um Código, então escolha essa opção no Mapa ');
+    pesquisa.idMapa.focus();
+    return false;
+    }
+
+return true;
+}
+//-->
+</SCRIPT>
+
+
+
+
 <div class="container">
 
 <!-- Passo 1 !-->
@@ -19,7 +43,6 @@ $tabela2 = Pacientes::where('codigo', 'LIKE', '%' . $nome . '%')->get();
 
 
 ?> 
-
         
     <div class="box-body">
     <form action="{{ url('pesquisar') }}" method="GET" enctype="multipart/form-data" NAME="regform"
@@ -95,9 +118,6 @@ $tabelaM = mapas::where('macro',$m)->get();
             </div>
         </div>
 </div>
-
-
-
 
 
 
