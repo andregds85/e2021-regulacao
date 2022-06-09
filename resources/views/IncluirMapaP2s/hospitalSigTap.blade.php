@@ -45,23 +45,7 @@ $tabela2 = Pacientes::where('codigo', 'LIKE', '%' . $nome . '%')->get();
 ?> 
 
         
-    <div class="box-body">
-    <form action="{{ url('pesquisar') }}" method="GET" enctype="multipart/form-data" NAME="regform"
-    onsubmit="return valida()">
-        <div class="form-group">
-            <label for="nome" class="col-sm-1 control-label"> SigTap</label>
-            <div class="col-sm-4">
-                <input type="text" class="form-control" name="p_nome" value="" id="nome" placeholder="informe o Sigtap">
-            </div>
-            <div class="col-sm-4">
-                <button type="submit" class="btn btn-default">Pesquisar </button>                    
-            </div>
-        </div>
-    </form>
-</div>
-
-
-    <div><td>Macro:</td><td> {{ Auth::user()->macro}}</td> </div>
+   <div><td>Macro:</td><td> {{ Auth::user()->macro}}</td> </div>
     <?php $m=Auth::user()->macro; ?>
 
 

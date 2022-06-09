@@ -5,8 +5,8 @@
 <!--
 function valida()
 {
-    
-    /* Valida do Formulário Acesso Venoso Central */ 
+        
+   /* Valida do Formulário Acesso Venoso Central */ 
     if (document.pesquisa.idMapa.value.length == 0 )   
     {
     alert('Está pesquisando um Código, então escolha essa opção no Mapa ');
@@ -14,10 +14,14 @@ function valida()
     return false;
     }
 
-return true;
+
+
+    return true;
 }
 //-->
 </SCRIPT>
+
+
 
 
 
@@ -35,7 +39,6 @@ function onlynumber(evt) {
    }
 }
 </script>
-
 
 
 
@@ -69,6 +72,9 @@ function onlynumber(evt) {
 <?php $hosp1 = Categoria::where('macro',$m)->get(); ?> 
 
 <div class="form-group">
+
+
+<!-- Formulario 1 -->
 <form action="{{ url('/sigtaphosp') }}" method="GET" enctype="multipart/form-data" NAME="outro">
 
     <label for="exampleFormControlSelect1">Hospital</label>
@@ -84,17 +90,42 @@ function onlynumber(evt) {
 
   <div class="form-group">
   <label for="inputPassword5">Sigtap</label>
-  <input type="text" id="inputPassword5" class="form-control" name="sigtap">
+  <input type="text"  class="form-control" name="sigtap">
 
   </div>
 
-  <input type="submit" class="btn btn-outline-primary" name="Enviar" value="Cadastrar">
+  <input type="submit" class="btn btn-outline-primary"  value="Cadastrar">
        
   <h6 class="card-title"><b></b></h6>
         </div>
     </div>
 </div>
 </form>
+
+<!-- Encerrando o Formulario 1 -->
+
+
+
+
+<SCRIPT> 
+<!--
+function branco()
+{
+        
+ if(document.regform.p_nome.value==""  || document.regform.p_nome.value.length < 5)   
+
+{
+alert( "Digite o Codigo Sigtap");
+regform.p_nome.focus();
+return false;
+}
+
+
+    return true;
+}
+//-->
+</SCRIPT>
+
 
 
 
@@ -104,19 +135,23 @@ function onlynumber(evt) {
       <div class="card-body">
        
     <div class="box-body">
-    <form action="{{ url('pesquisar') }}" method="GET" enctype="multipart/form-data" NAME="pesq" onsubmit="return valida()">
+    <form action="{{ url('pesquisar') }}" method="GET" enctype="multipart/form-data" NAME="regform" onsubmit="return branco()">
         <div class="form-group">
             <label for="nome" class="col-sm-1 control-label"> SigTap</label>
             <div class="col-sm-4">
-                <input type="text" class="form-control" name="p_nome" value="" id="nome" placeholder="informe o Sigtap">
+                <input type="text" class="form-control" name="p_nome">
             </div>
-            <div class="col-sm-4">
-                <input type="submit" class="btn btn-outline-primary" name="Enviar" value="Pesquisar">
-                   
-            </div>
+             
+                <button type="submit" class="btn btn-outline-primary">
+                 pesquisar
+                 </button>
+    
+    
         </div>
     </form>
 </div>
+
+
 
 
 

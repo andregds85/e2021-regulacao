@@ -3,16 +3,19 @@
 
 
 
+
+
+
 <SCRIPT> 
 <!--
 function valida()
 {
     
     /* Valida do Formulário Acesso Venoso Central */ 
-    if (document.pesquisa.idMapa.value.length == 0 )   
+    if (document.pesq.grupo_chk[].value.length == 0 )   
     {
-    alert('Está pesquisando um Código, então escolha essa opção no Mapa ');
-    pesquisa.idMapa.focus();
+    alert('Selecione um Paciente ');
+    pesq.grupo_chk[].focus();
     return false;
     }
 
@@ -20,7 +23,6 @@ return true;
 }
 //-->
 </SCRIPT>
-
 
 
 
@@ -44,22 +46,6 @@ $tabela2 = Pacientes::where('codigo', 'LIKE', '%' . $nome . '%')->get();
 
 ?> 
         
-    <div class="box-body">
-    <form action="{{ url('pesquisar') }}" method="GET" enctype="multipart/form-data" NAME="regform"
-    onsubmit="return valida()">
-        <div class="form-group">
-            <label for="nome" class="col-sm-1 control-label"> SigTap</label>
-            <div class="col-sm-4">
-                <input type="text" class="form-control" name="p_nome" value="" id="nome" placeholder="informe o Sigtap">
-            </div>
-            <div class="col-sm-4">
-                <button type="submit" class="btn btn-default">Pesquisar </button>                    
-            </div>
-        </div>
-    </form>
-</div>
-
-
     <div><td>Macro:</td><td> {{ Auth::user()->macro}}</td> </div>
     <?php $m=Auth::user()->macro; ?>
 
@@ -93,7 +79,8 @@ $tabela2 = Pacientes::where('codigo', 'LIKE', '%' . $nome . '%')->get();
 ])->get();
 ?>	
 
-<form action="{{route('incluirMapaP2s.create') }}" method="get">
+<form action="{{route('incluirMapaP2s.create') }}"  method="GET" enctype="multipart/form-data" NAME="pesq" onsubmit="return valida()">
+
 
 <?php 
 $m=Auth::user()->macro;
