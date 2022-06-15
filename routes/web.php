@@ -26,6 +26,9 @@ use App\Http\Controllers\encerraController;
 use App\Http\Controllers\listarMapaController;
 use App\Http\Controllers\pesquisaController;
 use App\Http\Controllers\pesquisaHospSigController;
+use App\Http\Controllers\sairController;
+
+
 
 
 
@@ -67,9 +70,11 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('listar', listarMapaController::class);
     Route::resource('pesquisar', pesquisaController::class);
     Route::resource('sigtaphosp', pesquisaHospSigController::class);
+    Route::resource('sair', sairController::class);
 
 
 
+    
 
 
     Route::get('munipac', 'App\Http\Controllers\MunicipioController@paciente');

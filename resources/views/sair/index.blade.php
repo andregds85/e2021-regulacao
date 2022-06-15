@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts3.app')
 @section('content')
 
 <!-- topo !-->

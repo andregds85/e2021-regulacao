@@ -6,15 +6,10 @@ $hospital;
 
 use App\Models\Categoria;
 $hosp = categoria::all();
-
 $m=Auth::user()->macro; 
 $hosp1 = Categoria::where('id',$hospital)->get(); 
  
-
  ?>
-
-
-
 
       @foreach($hosp1 as $item1)
         <?php 
@@ -27,14 +22,12 @@ $hosp1 = Categoria::where('id',$hospital)->get();
 
         if($macroHosp<>$m){
 
-         echo "Esse usuário é diferente da Macro ";
-
-        }else{
-
-            echo "usuário igual ao da Macro";
+         echo "<script> alert('Você tentou acessar dados de outra Macro')</script>";
+         echo redirect()->route('sair.index'); 
         }
-
-        ?>        
+      
+      
+      ?>        
         
 
 
