@@ -39,6 +39,8 @@ return array(
     'App\\Http\\Controllers\\macro' => $baseDir . '/app/Http/Controllers/macro.php',
     'App\\Http\\Controllers\\mapasRegController' => $baseDir . '/app/Http/Controllers/mapasRegController.php',
     'App\\Http\\Controllers\\obsMapaP2sController' => $baseDir . '/app/Http/Controllers/obsMapaP2sController.php',
+    'App\\Http\\Controllers\\pesquisaController' => $baseDir . '/app/Http/Controllers/pesquisaController.php',
+    'App\\Http\\Controllers\\pesquisaHospSigController' => $baseDir . '/app/Http/Controllers/pesquisaHospSigController.php',
     'App\\Http\\Controllers\\retiraPacienteController' => $baseDir . '/app/Http/Controllers/retiraPacienteController.php',
     'App\\Http\\Controllers\\soudohospital' => $baseDir . '/app/Http/Controllers/soudohospital.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',

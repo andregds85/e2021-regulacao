@@ -58,7 +58,9 @@ function onlynumber(evt) {
 <!-- Passo 1 !-->
   <div class="card mb-3">
       <div class="card-body">
-        <h5 class="card-title"><b>Pesquisa de pacientes utilizando código SigTap e Hospital </h5>
+        <h5 class="card-title"><b>Pesquisa de pacientes utilizando código SigTap e Hospital </h5><br>
+        <h5 class="card-title"><b>Passo 1 - Selecione o Hospital / 2  </h5>
+
 <br><br>
 
 
@@ -89,12 +91,10 @@ function onlynumber(evt) {
 
 
   <div class="form-group">
-  <label for="inputPassword5">Sigtap</label>
-  <input type="text"  class="form-control" name="sigtap">
 
   </div>
 
-  <input type="submit" class="btn btn-outline-primary"  value="Cadastrar">
+  <input type="submit" class="btn btn-outline-primary"  value="Selecione o Hospital ">
        
   <h6 class="card-title"><b></b></h6>
         </div>
