@@ -2,10 +2,6 @@
 @section('content')
 
 
-
-
-
-
 <SCRIPT> 
 <!--
 function valida()

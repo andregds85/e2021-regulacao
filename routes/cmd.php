@@ -12,7 +12,6 @@ git config --global user.name "André "
 git config --global user.email andregds85@gmail.com 
 
 
-
 Adiciona todas as alterações 
 git add --all
 
