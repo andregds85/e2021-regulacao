@@ -1,6 +1,5 @@
 <?php
 
-
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RoleController;
@@ -69,13 +68,14 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('sigtaphosp2', pesquisaHospSig2Controller::class);
 
       
-    
     Route::get('munipac', 'App\Http\Controllers\MunicipioController@paciente');
     Route::get('excluir', 'App\Http\Controllers\contarController@show');
     Route::get('mapasfull', 'App\Http\Controllers\obsMapaP2sController@mapasFull');
+  
     /* url chamando um methodo do Controller 
     Route::get('pacienteMapa', 'App\Http\Controllers\mapasRegController@abc');
     */
+  
     Route::get('import_exportpacie', 'App\Http\Controllers\Import_Export_ControllerPacie@importExport');
     Route::post('importpacie', 'App\Http\Controllers\Import_Export_ControllerPacie@import');
     Route::get('exportpacie', 'App\Http\Controllers\Import_Export_ControllerPacie@export');
@@ -83,8 +83,6 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('import_export', 'App\Http\Controllers\Import_Export_Controller@importExport');
     Route::post('import', 'App\Http\Controllers\Import_Export_Controller@import');
     Route::get('export', 'App\Http\Controllers\Import_Export_Controller@export');
-
-
  
 });
 
