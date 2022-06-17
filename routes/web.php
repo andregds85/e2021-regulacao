@@ -27,12 +27,7 @@ use App\Http\Controllers\listarMapaController;
 use App\Http\Controllers\pesquisaController;
 use App\Http\Controllers\pesquisaHospSigController;
 use App\Http\Controllers\sairController;
-
-
-
-
-
-
+use App\Http\Controllers\pesquisaHospSig2Controller;
 
 Route::get('/', function () {
     return view('home');
@@ -71,12 +66,10 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('pesquisar', pesquisaController::class);
     Route::resource('sigtaphosp', pesquisaHospSigController::class);
     Route::resource('sair', sairController::class);
+    Route::resource('sigtaphosp2', pesquisaHospSig2Controller::class);
 
-
-
+      
     
-
-
     Route::get('munipac', 'App\Http\Controllers\MunicipioController@paciente');
     Route::get('excluir', 'App\Http\Controllers\contarController@show');
     Route::get('mapasfull', 'App\Http\Controllers\obsMapaP2sController@mapasFull');

@@ -19,7 +19,7 @@ git add --all
 
 Cria um commit com uma mensagem 
 
-git commit -m "commit message"
+git commit -m "Nova view e Novo Controller com seção"
 
 git push -u origin master
 git push --force origin main
