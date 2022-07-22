@@ -6,15 +6,17 @@ session_start();
 use App\Models\mapas;
 use App\Models\Pacientes;
 
+
 use App\Http\Controllers\MapasController;
 use App\Http\Controllers\mapahospitalController;
 use App\Http\Controllers\PacienteController;
+
 
 use App\Models\incluir_mapa_p2;
 use App\Models\mapahospital;
 use App\Models\municipio_mapa_p3;
 
-$id;
+
 $senha=$id;
 $hash = base64_encode($senha);
 $hash;
@@ -43,6 +45,8 @@ $hosp = mapahospital::where('id',$id)->get();
 <?php
 $muni = municipio_mapa_p3::all();
 $municipio = municipio_mapa_p3::where('idp2',$o1->idp3)->get();
+
+
 ?>
 
 <br>
@@ -74,10 +78,10 @@ $regulacao2 = incluir_mapa_p2::where('id',$o->idp2)->get();
 @foreach ($regulacao2  as $t2)
     <tr>
       <td><b>Id do Mapa:</b>{{$t2->idMapa }} <br>
+
+<?php      $_SESSION['idMapa']=$t2->idMapa;  ?> 
+
            <b>Id do Paciente:</b>{{$t2->idPaciente }}<br>
-
-
-
 
            <?php 
               $buscoPac = Pacientes::all();   
@@ -85,14 +89,14 @@ $regulacao2 = incluir_mapa_p2::where('id',$o->idp2)->get();
               ?>
               @foreach ($pacBuscou as $z)
 
+          <b>Código da Solicitação: </b> {{$z->solicitacao }}<br>
+          <?php      $_SESSION['solicitacao']=$z->solicitacao;  ?> 
 
-
-           <b>Código da Solicitação: </b> {{$z->solicitacao }}<br>
-        
-           <b>Data da Inserção :</b>{{$z->created_at }}<br>
-           <b>CNS:</b>{{$z->cns }}<br>
-           <?php $seCns=$_SESSION["cns"] =$t2->cns; ?>
-           <b>Municipio:</b>{{$z->municipio }}<br>
+  
+          <b>Data da Inserção :</b>{{$z->created_at }}<br>
+          <b>CNS:</b>{{$z->cns }}<br>
+          <?php      $_SESSION['cns']=$z->cns; ?> 
+          <b>Municipio:</b>{{$z->municipio }}<br>
      </td>
      <td>
     <b> Nome do Usuário: </b> {{$z->nomedousuario}}<br>

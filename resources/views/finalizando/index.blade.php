@@ -16,8 +16,6 @@ use App\Models\incluir_mapa_p2;
 use App\Models\mapahospital;
 use App\Models\municipio_mapa_p3;
 
-
-
 $macro=Auth::user()->macro; 
 
 $tabela = mapas::all(); 
@@ -26,9 +24,7 @@ $tabelap2 = incluir_mapa_p2::all();
 $itensP2 =  incluir_mapa_p2::where('macro',$macro)->get(); 
 ?>
 
-
 <?php $hospUsr=Auth::user()->categorias_id; ?> 
-
 
 <form>
    <input type="button" value="Imprimir" onClick="window.print()" />
@@ -67,13 +63,14 @@ $itensP2 =  incluir_mapa_p2::where('macro',$macro)->get();
            <b>Hospital: </b> {{$t->categoria_id }}<br>
 
             <?php $hosptb=$t->categoria_id; ?>
-       
-           <b>Nome do Mapa:</b>{{$t->nome }}<br>
+            <b>Nome do Mapa:</b>{{$t->nome }}<br>
            <b>Descrição:</b>{{$t->descricao }}<br>
      <b>Especialidade: </b> {{$t->especialidade }}<br>
      </td>
      <td>
    
+
+     
     <b> Código do Procedimento: </b> {{$t->cod_procedimento}}<br>
     <b> Procedimento:</b> {{$t->procedimento}}<br>
     <b> Vagas:</b> {{$t->vagas}}<br>

@@ -31,6 +31,10 @@ class finalMapsController extends Controller
 
         ]);
         finalMaps::create($request->all());
+        echo  "<script>
+        alert( 'Sucesso, Cadastro inserido !' );
+             </script>";  
+
         return redirect()->route('home')
                         ->with('Sucesso','criado com  Sucesso.');
     

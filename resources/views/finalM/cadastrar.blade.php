@@ -4,9 +4,12 @@
 <?php
 session_start();
 $id;
-echo $cns=$_SESSION["cns"];
-echo $codSolicitacao=$_SESSION["codSolicitacao"];
-echo $idPaciente=$_SESSION['idPaciente'];
+$cns=$_SESSION['cns'];
+$codSolicitacao=$_SESSION['solicitacao'];
+$idPaciente=$_SESSION['idPaciente'];
+$idMapa=$_SESSION['idMapa'];
+
+
 
 ?>
 
@@ -21,22 +24,17 @@ echo $idPaciente=$_SESSION['idPaciente'];
     onsubmit="return valida()">
                         @csrf
 
-
-
-                        
+                 
 <?php 
-
 use App\Models\finalMaps;
 use App\Http\Controllers\finalMapsController;
 ?>
 
- 
+                       </div>
                         </div>
                         </div>
                         </div>
                         </div>
-                        </div>
-
 
     
     <div class="container">
@@ -100,8 +98,7 @@ use App\Http\Controllers\finalMapsController;
                             </div>
                         </div>
 
-  
-                        
+                         
                           <!--  Código da solicitação  -->
                           <div class="form-group row">
                             <label for="nome" class="col-md-4 col-form-label text-md-right">{{ __('Codigo da Solicitação') }}</label>
@@ -115,11 +112,12 @@ use App\Http\Controllers\finalMapsController;
                             </div>
                         </div>
 
+
                       <!--  cns -->
                           <div class="form-group row">
                             <label for="nome" class="col-md-4 col-form-label text-md-right">{{ __('CNS') }}</label>
                             <div class="col-md-6">
-                                <input id="cns" type="text" class="form-control @error('cns') is-invalid @enderror" name="cns" required autocomplete="id" value="<?php echo $cns; ?>"readonly>
+                                <input id="cns" type="text" class="form-control @error('cns') is-invalid @enderror" name="cns" required autocomplete="id" value="<?php echo $cns;   ?>"readonly>
                                 @error('CNS')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -128,8 +126,41 @@ use App\Http\Controllers\finalMapsController;
                             </div>
                         </div>
 
+                        
+                      <!--  idMapa -->
+                      <div class="form-group row">
+                            <label for="nome" class="col-md-4 col-form-label text-md-right">{{ __('id do Mapa') }}</label>
+                            <div class="col-md-6">
+                                <input id="idMapa" type="text" class="form-control @error('idMapa') is-invalid @enderror" name="idMapa" required autocomplete="idMapa" value="<?php echo $idMapa; ?>"readonly>
+                                @error('idMapa')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
 
-                     
+                 
+                                              
+                      <!--  idPaciente -->
+                      <div class="form-group row">
+                            <label for="nome" class="col-md-4 col-form-label text-md-right">{{ __('id do Paciente ') }}</label>
+                            <div class="col-md-6">
+                                <input id="idPaciente" type="text" class="form-control @error('idPaciente') is-invalid @enderror" name="idPaciente" required autocomplete="idPaciente" value="<?php echo $idPaciente; ?>"readonly>
+                                @error('idPaciente')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div> 
+
+
+
+
+
+
+
 
 
 
