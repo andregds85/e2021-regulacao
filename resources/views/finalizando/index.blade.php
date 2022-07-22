@@ -109,30 +109,36 @@ $itensP2 =  incluir_mapa_p2::where('macro',$macro)->get();
   <tbody>
     <tr>
       <td><b>Id do Mapa:</b>{{$t2->idMapa }} <br>
-           <b>Id do Paciente:</b>{{$t2->idPaciente }}<br>
+        
+          <?php $_SESSION['zidMapa'] = $t2->idMapa; ?>
+          <b>Id do Paciente:</b>{{$t2->idPaciente }}<br>
+
+          <?php $_SESSION['zidPaciente'] = $t2->idPaciente; ?>
+          
+
 
             <?php 
-
-
               $buscoPac = Pacientes::all();   
               $pacBuscou = Pacientes::where('id',$t2->idPaciente)->get(); 
               ?>
-
               @foreach ($pacBuscou as $z)
 
 
-
            <b>Código da Solicitação: </b> {{$z->solicitacao }}<br>
+
+           <?php $_SESSION['zsolicitacao'] = $z->solicitacao; ?>
+
            <b>Data da Inserção :</b>{{$z->created_at }}<br>
-
            <b>CNS:</b>{{$z->cns }}<br>
+           <?php $_SESSION['zcns'] = $z->cns; ?>
 
-          
            <b>Municipio:</b>{{$z->municipio }}<br>
+           <?php $_SESSION['zmunicipio'] = $z->municipio; ?>
      </td>
      <td>
 
     <b> Nome do Usuário: </b> {{$z->nomedousuario}}<br>
+    <?php $_SESSION['znomedousuario'] = $z->nomedousuario; ?>
     <b> Macro:</b> {{$z->macro}}<br>
 
 <?php 

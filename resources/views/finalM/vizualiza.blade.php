@@ -4,16 +4,15 @@
 session_start();
 
 use App\Models\mapas;
+use App\Models\Pacientes;
+
 use App\Http\Controllers\MapasController;
 use App\Http\Controllers\mapahospitalController;
 use App\Http\Controllers\PacienteController;
 
-
-
 use App\Models\incluir_mapa_p2;
 use App\Models\mapahospital;
 use App\Models\municipio_mapa_p3;
-
 
 $id;
 $senha=$id;
@@ -76,17 +75,27 @@ $regulacao2 = incluir_mapa_p2::where('id',$o->idp2)->get();
     <tr>
       <td><b>Id do Mapa:</b>{{$t2->idMapa }} <br>
            <b>Id do Paciente:</b>{{$t2->idPaciente }}<br>
-           <b>Código da Solicitação: </b> {{$t2->codSolicitacao }}<br>
-           <?php $codSolicitacao=$_SESSION["codSolicitacao"] =$t2->codSolicitacao; ?>
-           <b>Data da Inserção :</b>{{$t2->created_at }}<br>
-           <b>CNS:</b>{{$t2->cns }}<br>
+
+
+
+
+           <?php 
+              $buscoPac = Pacientes::all();   
+              $pacBuscou = Pacientes::where('id',$t2->idPaciente)->get(); 
+              ?>
+              @foreach ($pacBuscou as $z)
+
+
+
+           <b>Código da Solicitação: </b> {{$z->solicitacao }}<br>
+        
+           <b>Data da Inserção :</b>{{$z->created_at }}<br>
+           <b>CNS:</b>{{$z->cns }}<br>
            <?php $seCns=$_SESSION["cns"] =$t2->cns; ?>
-           <b>Municipio:</b>{{$t2->municipio }}<br>
-           <b>Usuario do Sistema: </b> {{$t2->usuarioSistema }}<br>
+           <b>Municipio:</b>{{$z->municipio }}<br>
      </td>
      <td>
-    <b> Nome do Usuário: </b> {{$t2->nomeUsuario}}<br>
-    <b> CPF do Usuário:</b> {{$t2->cpfUsuarioSistema}}<br>
+    <b> Nome do Usuário: </b> {{$z->nomedousuario}}<br>
     <b> Macro:</b> {{$t2->macro}}<br>
     @endforeach
 <br>
@@ -112,6 +121,9 @@ $mapaEsp = mapas::where('id',$t2->idMapa)->get();
      </td>
      <td>
  @endforeach
+
+ @endforeach
+
   
 
 
