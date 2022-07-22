@@ -1,16 +1,16 @@
 @extends('limpo.app')
 @section('content')
 <?php 
+session_start();
 
 use App\Models\mapas;
 use App\Models\finalMaps;
-
+use App\Models\Pacientes;
 
 use App\Http\Controllers\MapasController;
 use App\Http\Controllers\mapahospitalController;
 use App\Http\Controllers\finalMapsController;
-
-
+use App\Http\Controllers\PacienteController;
 
 use App\Models\incluir_mapa_p2;
 use App\Models\mapahospital;
@@ -18,13 +18,10 @@ use App\Models\municipio_mapa_p3;
 
 
 
-
-
 $macro=Auth::user()->macro; 
 
 $tabela = mapas::all(); 
 $itensP = mapas::where('macro',$macro)->get(); 
-
 $tabelap2 = incluir_mapa_p2::all(); 
 $itensP2 =  incluir_mapa_p2::where('macro',$macro)->get(); 
 ?>
@@ -113,20 +110,30 @@ $itensP2 =  incluir_mapa_p2::where('macro',$macro)->get();
     <tr>
       <td><b>Id do Mapa:</b>{{$t2->idMapa }} <br>
            <b>Id do Paciente:</b>{{$t2->idPaciente }}<br>
-           <b>Código da Solicitação: </b> {{$t2->codSolicitacao }}<br>
-           <b>Data da Inserção :</b>{{$t2->created_at }}<br>
 
-           <b>CNS:</b>{{$t2->cns }}<br>
+            <?php 
+
+
+              $buscoPac = Pacientes::all();   
+              $pacBuscou = Pacientes::where('id',$t2->idPaciente)->get(); 
+              ?>
+
+              @foreach ($pacBuscou as $z)
+
+
+
+           <b>Código da Solicitação: </b> {{$z->solicitacao }}<br>
+           <b>Data da Inserção :</b>{{$z->created_at }}<br>
+
+           <b>CNS:</b>{{$z->cns }}<br>
 
           
-           <b>Municipio:</b>{{$t2->municipio }}<br>
-     <b>Usuario do Sistema: </b> {{$t2->usuarioSistema }}<br>
+           <b>Municipio:</b>{{$z->municipio }}<br>
      </td>
      <td>
 
-    <b> Nome do Usuário: </b> {{$t2->nomeUsuario}}<br>
-    <b> CPF do Usuário:</b> {{$t2->cpfUsuarioSistema}}<br>
-    <b> Macro:</b> {{$t->macro}}<br>
+    <b> Nome do Usuário: </b> {{$z->nomedousuario}}<br>
+    <b> Macro:</b> {{$z->macro}}<br>
 
 <?php 
 $tabelap3 = municipio_mapa_p3::all();
@@ -140,7 +147,6 @@ echo  $observacao = municipio_mapa_p3::where('idp2',$t2->id)->count();
   }?>
 <br>
 	
-
 @foreach ($vbobserv as $o)
 <b>Id do Registro / Observação Municipio:</b>{{$o->id }}<br>
 <b>Observação do Municipio:</b>{{$o->observacao }}<br>
@@ -182,6 +188,8 @@ echo  $observacao = mapahospital::where('idp2',$ref)->count();
 
 @endforeach
 @endforeach 
+@endforeach 
+
 
   </td>
     </tr>

@@ -40,6 +40,7 @@ return array(
     'App\\Http\\Controllers\\mapasRegController' => $baseDir . '/app/Http/Controllers/mapasRegController.php',
     'App\\Http\\Controllers\\obsMapaP2sController' => $baseDir . '/app/Http/Controllers/obsMapaP2sController.php',
     'App\\Http\\Controllers\\pesquisaController' => $baseDir . '/app/Http/Controllers/pesquisaController.php',
+    'App\\Http\\Controllers\\pesquisaHospSig2Controller' => $baseDir . '/app/Http/Controllers/pesquisaHospSig2Controller.php',
     'App\\Http\\Controllers\\pesquisaHospSigController' => $baseDir . '/app/Http/Controllers/pesquisaHospSigController.php',
     'App\\Http\\Controllers\\retiraPacienteController' => $baseDir . '/app/Http/Controllers/retiraPacienteController.php',
     'App\\Http\\Controllers\\sairController' => $baseDir . '/app/Http/Controllers/sairController.php',

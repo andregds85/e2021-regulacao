@@ -3,30 +3,26 @@
 <?php 
 session_start();
 
-
 use App\Models\mapas;
 use App\Http\Controllers\MapasController;
 use App\Http\Controllers\mapahospitalController;
+use App\Http\Controllers\PacienteController;
+
+
 
 use App\Models\incluir_mapa_p2;
 use App\Models\mapahospital;
 use App\Models\municipio_mapa_p3;
 
 
-
-echo $id;
-
+$id;
 $senha=$id;
 $hash = base64_encode($senha);
 $hash;
 
-
-
 ?>
-
-
 <p class="card-text">
-<a href="{{url('confirma', ['id' => $hash]) }}">Confirmação</a>
+<a  class="btn btn-danger" href="{{url('confirma', ['id' => $hash]) }}">Confirmação</a>
 </p>
 
 
@@ -60,8 +56,10 @@ $municipio = municipio_mapa_p3::where('idp2',$o1->idp3)->get();
 <b>Id do Registro / Observação Municipio:</b>{{$o->id }}<br>
 <b>Observação do Municipio:</b>{{$o->observacao }}<br>
 <b>Id paciente:</b>{{$o->idPaciente }}<br>
+<?php 
+$_SESSION['idPaciente']=$o->idPaciente;
+?>
 <b>Id Referencia:</b>{{$o->idp2 }}<br>
-
 @endforeach
 
 <?php
@@ -74,19 +72,17 @@ $regulacao2 = incluir_mapa_p2::where('id',$o->idp2)->get();
 <b>Preenchimento pelo Regulação</b><br>
 <br>
 
-
 @foreach ($regulacao2  as $t2)
     <tr>
       <td><b>Id do Mapa:</b>{{$t2->idMapa }} <br>
            <b>Id do Paciente:</b>{{$t2->idPaciente }}<br>
            <b>Código da Solicitação: </b> {{$t2->codSolicitacao }}<br>
            <?php $codSolicitacao=$_SESSION["codSolicitacao"] =$t2->codSolicitacao; ?>
-
            <b>Data da Inserção :</b>{{$t2->created_at }}<br>
            <b>CNS:</b>{{$t2->cns }}<br>
            <?php $seCns=$_SESSION["cns"] =$t2->cns; ?>
            <b>Municipio:</b>{{$t2->municipio }}<br>
-     <b>Usuario do Sistema: </b> {{$t2->usuarioSistema }}<br>
+           <b>Usuario do Sistema: </b> {{$t2->usuarioSistema }}<br>
      </td>
      <td>
     <b> Nome do Usuário: </b> {{$t2->nomeUsuario}}<br>
@@ -98,11 +94,11 @@ $regulacao2 = incluir_mapa_p2::where('id',$o->idp2)->get();
 <b>Criado pelo Hospital / Dados do Mapa</b><br>
 <br>
 
+
 <?php
 $mapa = mapas::all();
 $mapaEsp = mapas::where('id',$t2->idMapa)->get();
 ?>
-
 
 @foreach ($mapaEsp as $t3)
     <tr>
@@ -116,10 +112,8 @@ $mapaEsp = mapas::where('id',$t2->idMapa)->get();
      </td>
      <td>
  @endforeach
- 
+  
 
- 
- 
 
 @endsection
 

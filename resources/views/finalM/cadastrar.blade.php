@@ -4,13 +4,11 @@
 <?php
 session_start();
 $id;
-$cns=$_SESSION["cns"];
-$codSolicitacao=$_SESSION["codSolicitacao"];
-
+echo $cns=$_SESSION["cns"];
+echo $codSolicitacao=$_SESSION["codSolicitacao"];
+echo $idPaciente=$_SESSION['idPaciente'];
 
 ?>
-
-
 
 <div class="container">
     <div class="row justify-content-center">
@@ -21,7 +19,6 @@ $codSolicitacao=$_SESSION["codSolicitacao"];
                 <div class="card-body">
                 <form action="{{ route('final.store') }}" method="POST" id="validate" enctype="multipart/form-data" NAME="regform"
     onsubmit="return valida()">
- 
                         @csrf
 
 
@@ -118,9 +115,7 @@ use App\Http\Controllers\finalMapsController;
                             </div>
                         </div>
 
-
-
-                          <!--  cns -->
+                      <!--  cns -->
                           <div class="form-group row">
                             <label for="nome" class="col-md-4 col-form-label text-md-right">{{ __('CNS') }}</label>
                             <div class="col-md-6">
