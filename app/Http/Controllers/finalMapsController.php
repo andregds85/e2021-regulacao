@@ -30,12 +30,10 @@ class finalMapsController extends Controller
         request()->validate([
 
         ]);
-        finalMaps::create($request->all());
-        echo  "<script>
-        alert( 'Sucesso, Cadastro inserido !' );
-             </script>";  
 
-        return redirect()->route('home')
+        finalMaps::create($request->all());
+            echo  "<script> alert( 'Sucesso, Cadastro inserido !' ); </script>";  
+              return redirect()->route('home')
                         ->with('Sucesso','criado com  Sucesso.');
     
     }

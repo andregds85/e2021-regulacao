@@ -9,8 +9,6 @@ $codSolicitacao=$_SESSION['solicitacao'];
 $idPaciente=$_SESSION['idPaciente'];
 $idMapa=$_SESSION['idMapa'];
 
-
-
 ?>
 
 <div class="container">
@@ -140,8 +138,7 @@ use App\Http\Controllers\finalMapsController;
                             </div>
                         </div>
 
-                 
-                                              
+                                             
                       <!--  idPaciente -->
                       <div class="form-group row">
                             <label for="nome" class="col-md-4 col-form-label text-md-right">{{ __('id do Paciente ') }}</label>

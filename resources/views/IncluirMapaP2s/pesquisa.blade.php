@@ -38,6 +38,7 @@ use App\Models\Pacientes;
 
 $tabela = Pacientes::all();
 $tabela2 = Pacientes::where('codigo', 'LIKE', '%' . $nome . '%')->get();
+$tab = Pacientes::where('statusSolicitacao','S')->get(); 
 
 
 ?> 
@@ -71,7 +72,9 @@ $tabela2 = Pacientes::where('codigo', 'LIKE', '%' . $nome . '%')->get();
 ->where([
 ['codigo', 'LIKE', '%' . $nome . '%'],
 
-["macro", "=", "$m"]
+["macro", "=", "$m"],
+["statusSolicitacao","N"]
+
 ])->get();
 ?>	
 
