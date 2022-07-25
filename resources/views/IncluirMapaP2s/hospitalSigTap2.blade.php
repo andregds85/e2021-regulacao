@@ -60,11 +60,12 @@ $tabela2 = Pacientes::where('codigo', 'LIKE', '%' . $nome . '%')->get();
 ['codigo', 'LIKE', '%' . $nome . '%'],
 
 ["macro", "=", "$m"],
-["categorias_id", "=", "$id"]
-
-
+["categorias_id", "=", "$id"],
+["statusSolicitacao","N"]
 ])->get();
 ?>	
+
+
 
 <form action="{{route('incluirMapaP2s.create') }}"  method="GET" enctype="multipart/form-data" NAME="pesq" onsubmit="return valida()">
 

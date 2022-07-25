@@ -1,28 +1,21 @@
 @extends('layouts3.app')
 @section('content')
-
 <SCRIPT> 
 <!--
 function valida()
 {
-        
-   /* Valida do Formulário Acesso Venoso Central */ 
+    /* Valida do Formulário Acesso Venoso Central */ 
     if (document.pesquisa.idMapa.value.length == 0 )   
     {
     alert('Está pesquisando um Código, então escolha essa opção no Mapa ');
     pesquisa.idMapa.focus();
     return false;
     }
-
-
-    
+  
     return true;
 }
 //-->
 </SCRIPT>
-
-
-
 
 
 
