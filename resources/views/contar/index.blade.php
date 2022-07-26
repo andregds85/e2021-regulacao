@@ -1,5 +1,6 @@
 @extends('layouts3.app')
 @section('content')
+
 <?php
 use App\Http\Controllers\MapasController;
 use App\Models\mapas;
@@ -7,11 +8,15 @@ use App\Models\mapas;
 $perfil= Auth::user()->perfil;
 $regiao= Auth::user()->macro;
 
-
 ?>
 <div class="container">
 <?php 
-if($perfil<>"regulacao"){
+$perfil= Auth::user()->perfil;
+$numperfil=strlen($perfil);
+
+if($numperfil=9){
+
+}else{
   session()->flush();
 }
 
