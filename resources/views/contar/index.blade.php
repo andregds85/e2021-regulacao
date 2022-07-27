@@ -12,14 +12,10 @@ $regiao= Auth::user()->macro;
 <div class="container">
 <?php 
 $perfil= Auth::user()->perfil;
-$numperfil=strlen($perfil);
 
-if($numperfil=9){
-
-}else{
+if($perfil<>"regulacao"){
   session()->flush();
 }
-
 
 use App\Http\Controllers\IncluirMapaP2sController;
 use App\Models\incluir_mapa_p2;
