@@ -64,18 +64,14 @@ $todos= incluir_mapa_p2::all();
   
        <td>
        <p class="card-text">
-       <a href="{{route('contar.index', ['id' => $mapa->id]) }}">Detalhamento</a>
+       <a class="btn btn-light" href="{{route('contar.index', ['id' => $mapa->id]) }}">Listar Mapa</a>
        </p>
       </td>
-<?php 
 
-
-
-?>
 
       <td>
        <p class="card-text">
-       <a href="{{url('listar', ['id' => base64_encode($mapa->id)]) }}">Listar o Mapa Completo</a>
+       <a class="btn btn-danger" href="{{url('listar', ['id' => base64_encode($mapa->id)]) }}">Listar o Mapa Completo e Pendências</a>
        </p>
       </td>
 
