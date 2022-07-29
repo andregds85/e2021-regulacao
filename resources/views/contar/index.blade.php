@@ -4,37 +4,25 @@
 <?php
 use App\Http\Controllers\MapasController;
 use App\Models\mapas;
-
 use App\Models\finalMaps;
 use App\Models\Pacientes;
-
 use App\Http\Controllers\mapahospitalController;
 use App\Http\Controllers\finalMapsController;
 use App\Http\Controllers\PacienteController;
 use App\Http\Controllers\MunicipioController;
-
-
-
-
 use App\Models\incluir_mapa_p2;
 use App\Models\mapahospital;
 use App\Models\municipio_mapa_p3;
-
-
 $perfil= Auth::user()->perfil;
 $regiao= Auth::user()->macro;
-
 ?>
 <div class="container">
 <?php 
 $perfil= Auth::user()->perfil;
-
 if($perfil<>"regulacao"){
  session()->flush();
 }
-
 use App\Http\Controllers\IncluirMapaP2sController;
-
 $id=$_GET['id']; 
 $tabela = mapas::all(); 
 $itens  = mapas::where('id',$id)->get();
@@ -103,8 +91,26 @@ $items  = incluir_mapa_p2::where('idMapa',$idm)->get();
           <?php $idReg=$m->id; ?>
           <h5 class="card-title"><b>Id do Paciente: {{$m->idPaciente}}</b></h5>
 
-          <h6 class="card-title"><b></b></h6>
-          <p class="card-text"><b> Id do Mapa: {{$m->idMapa }} </b></p>
+          <br><br>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter1">
+Regulação</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Regulação </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+      Dados do Paciente
+          Id do Mapa: {{$m->idMapa }} 
 
           <?php 
               $buscoPac = Pacientes::all();   
@@ -119,45 +125,82 @@ $items  = incluir_mapa_p2::where('idMapa',$idm)->get();
            <b> Nome do Usuário: </b> {{$z->nomedousuario}}<br>
            <b> Macro:</b> {{$z->macro}}<br>
 
-      <td>
-       <p class="card-text">
-       <div class="alert alert-info" role="alert">
-       Municipio
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>
 
-       <?php 
+
+
+
+
+
+           
+ <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+ Municipio
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Municipio</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <?php 
       $tabelap3 = municipio_mapa_p3::all();
       $vbobserv = municipio_mapa_p3::where('idPaciente',$m->idPaciente)->get();
       echo  $observacao = municipio_mapa_p3::where('idPaciente',$m->idPaciente)->count();
-
   if($observacao==0){
     echo "Falta o municipio inserir a Observação";
   }?>
 <br>
 
 
-
 @foreach ($vbobserv as $o)
 <b>Id do Registro / Observação Municipio:</b>{{$o->id }}<br>
 <b>Observação do Municipio:</b>{{$o->observacao }}<br>
 <b>Id paciente:</b>{{$o->idPaciente }}<br>
-<b>Id Referencia:</b>{{$o->idp2 }}<br>
-
-
+<b>Id Referencia:</b>{{$o->idp2 }}<br>      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
       </div>
-      </p>
-      </td>
+    </div>
+  </div>
+</div>
 
-<td>
-     <p class="card-text">
-       <div class="alert alert-warning" role="alert">
-        
-       
-       <?php 
+
+
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+ Hospital
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Hospital</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <?php 
 $tab = mapahospital::all();
 $hosp = mapahospital::where('idPaciente',$m->idPaciente)->get();
 /*
 echo  $observacao = mapahospital::where('idp2',$ref)->count();
-
   if($observacao==0){
     echo "Falta o municipio inserir a Observação";
   }  */ ?>
@@ -171,17 +214,29 @@ echo  $observacao = mapahospital::where('idp2',$ref)->count();
 <b>Observação do Hospital:</b>{{$o1->obsHospital }}<br>
 <b>Realizou Cirurgia Sim / Não </b>{{$o1->realizou }}<br>
 <b>Usuário:</b>{{$o1->usuario }}<br>
-
       </div>
-       </p>
-      </td>
-        
-       <td>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
        <p class="card-text">
-       <a href="{{url('excluir', ['id' => $m->id]) }}">Excluir</a>
+       <a class="btn btn-danger" href="{{url('excluir', ['id' => $m->id]) }}">Excluir</a>
        </p>
-      </td>
-        
+
 
      </div>
     </div>
@@ -193,7 +248,3 @@ echo  $observacao = mapahospital::where('idp2',$ref)->count();
 @endforeach
 @endsection
         </div>
-
-
-
-        
