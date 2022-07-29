@@ -14,6 +14,8 @@ use App\Http\Controllers\PacienteController;
 use App\Http\Controllers\MunicipioController;
 
 
+
+
 use App\Models\incluir_mapa_p2;
 use App\Models\mapahospital;
 use App\Models\municipio_mapa_p3;
@@ -30,7 +32,6 @@ $perfil= Auth::user()->perfil;
 if($perfil<>"regulacao"){
  session()->flush();
 }
-
 
 use App\Http\Controllers\IncluirMapaP2sController;
 
@@ -89,7 +90,6 @@ $itens  = mapas::where('id',$id)->get();
     </div>
   </div>
 
-
 <?php 
 $tabela = incluir_mapa_p2::all(); 
 $items  = incluir_mapa_p2::where('idMapa',$idm)->get();
@@ -99,17 +99,7 @@ $items  = incluir_mapa_p2::where('idMapa',$idm)->get();
 
    <div class="card mb-3">
    <div class="card-body">
-   <p class="card-text">
-    
-   
-   <td>
-       <p class="card-text">
-      <div class="alert alert-primary" role="alert">
-
-      Regulação <br>
-    
-
-      <b> Id do Registro: {{$m->id }} </b></p>
+   <p class="card-text"><b> Id do Registro: {{$m->id }} </b></p>
           <?php $idReg=$m->id; ?>
           <h5 class="card-title"><b>Id do Paciente: {{$m->idPaciente}}</b></h5>
 
@@ -128,11 +118,7 @@ $items  = incluir_mapa_p2::where('idMapa',$idm)->get();
            <b>Municipio:</b>{{$z->municipio }}<br>
            <b> Nome do Usuário: </b> {{$z->nomedousuario}}<br>
            <b> Macro:</b> {{$z->macro}}<br>
-     </div>
-       </p>
-      </td>
-        
-         
+
       <td>
        <p class="card-text">
        <div class="alert alert-info" role="alert">
@@ -148,6 +134,8 @@ $items  = incluir_mapa_p2::where('idMapa',$idm)->get();
   }?>
 <br>
 
+
+
 @foreach ($vbobserv as $o)
 <b>Id do Registro / Observação Municipio:</b>{{$o->id }}<br>
 <b>Observação do Municipio:</b>{{$o->observacao }}<br>
@@ -162,8 +150,7 @@ $items  = incluir_mapa_p2::where('idMapa',$idm)->get();
 <td>
      <p class="card-text">
        <div class="alert alert-warning" role="alert">
-       Hospital
-
+        
        
        <?php 
 $tab = mapahospital::all();
@@ -176,6 +163,7 @@ echo  $observacao = mapahospital::where('idp2',$ref)->count();
   }  */ ?>
 <br>
 	
+
 @foreach ($hosp as $o1)
 <b>Id Referencia:</b>{{$o1->idp3 }}<br>
 <b>Prontuário do Hospital:</b>{{$o1->prontuarioHospital }}<br>
@@ -187,42 +175,18 @@ echo  $observacao = mapahospital::where('idp2',$ref)->count();
       </div>
        </p>
       </td>
-
-      <td>
-       <p class="card-text">
-       <div class="alert alert-primary" role="alert">
-       Regulação 
-       
-<?php
-    
-        $final = finalMaps::where('idPaciente',$m->idPaciente)->get(); ?>
-        @foreach ($final as $f1)
-
-        <b>Id de Referencia</b>{{$f1->idp4 }}<br>
-        <b>Observação da Central:</b>{{$f1->obsCentral }}<br>
-        <b>Status do Sisreg:</b>{{$f1->statusSisreg }}<br>
-        <b>Código do Sisreg:</b>{{$f1->codSisReg }}<br>
-
-        <b>CNS:</b>{{$f1->cns }}<br>
-        <b>ID DO Mapa:</b>{{$f1->idMapa}}<br>
-        <b>ID DO Paciente:</b>{{$f1->idPaciente}}<br>
-
-      </div>
-       </p>
-      </td>
         
        <td>
-       <p class="alert alert-success">
+       <p class="card-text">
        <a href="{{url('excluir', ['id' => $m->id]) }}">Excluir</a>
        </p>
       </td>
-     
+        
 
      </div>
     </div>
 
-    
-@endforeach
+
 @endforeach
 @endforeach
 @endforeach
@@ -231,3 +195,5 @@ echo  $observacao = mapahospital::where('idp2',$ref)->count();
         </div>
 
 
+
+        
