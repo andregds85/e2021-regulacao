@@ -69,11 +69,7 @@ $todos= incluir_mapa_p2::all();
       </td>
 
 
-      <td>
-       <p class="card-text">
-       <a class="btn btn-danger" href="{{url('listar', ['id' => base64_encode($mapa->id)]) }}">Listar o Mapa Completo e Pendências</a>
-       </p>
-      </td>
+
 
 
 
