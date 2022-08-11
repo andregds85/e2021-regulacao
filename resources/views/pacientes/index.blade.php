@@ -1,8 +1,27 @@
 @extends('layouts3.app')
 @section('content')
-<?php session_start(); ?> 
-<div class="container">
+<?php session_start(); ?>
 
+
+<SCRIPT> 
+<!--
+function valida()
+{
+    /* Valida do Formulário Acesso Venoso Central */ 
+    if (document.regform.p_nome.value.length == 0 )   
+    {
+    alert('Digite um nome de Paciente ');
+    regform.p_nome.focus();
+    return false;
+    }
+ return true;
+}
+//-->
+</SCRIPT>
+
+
+
+<div class="container">
 <div><td>Macro:</td><td> {{ Auth::user()->macro}}</td> </div>
 <?php $m=Auth::user()->macro; ?>
 
@@ -29,9 +48,51 @@
 
     $tabela = categoria::all();
 ?>
+
+
+
+
+<div class="container">
+<!-- Passo 1 !-->
+  <div class="card mb-3">
+      <div class="card-body">
+       
+    <div class="box-body">
+    <form action="{{ url('pesquisar1') }}" method="GET" enctype="multipart/form-data" NAME="regform" onsubmit="return valida()">
+        <div class="form-group">
+            <label for="nome" class="col-sm-1 control-label"> Nome do Paciente</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" name="p_nome">
+            </div>
+             
+                <button type="submit" class="btn btn-outline-primary">
+                 pesquisar
+                 </button>
+    
+    
+        </div>
+    </form>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <table class="table table-bordered">
         <tr>
-            <th>Sigtap</th>
+            <th>Sigtap / Nome</th>
             <th>Hospital</th>
         </tr>
 <?php
@@ -51,13 +112,19 @@ $itensP = Pacientes::select("*")
 	    <tr>
                 
             <td><b>{{$paciente->id}}</b> /
-            {{$paciente->codigo }}</td>
+            {{$paciente->codigo }}
+            <br>
+            {{$paciente->nomedousuario}}
+
+        </td>
             <?php $a=$paciente->categorias_id; ?>
             
                 @foreach($tabela as $item)
                <?php $b=$item->id; ?>
                <?php $c=$item->name; ?>
  
+               
+
                 <?php
                 if($b==$a){
                     echo "<td>";

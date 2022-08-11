@@ -35,7 +35,6 @@
     </table>
 
     {!! $macros->links() !!}
-    {!! $macros->links() !!}
 
 
 <p class="text-center text-primary"><small>Macro</small></p>

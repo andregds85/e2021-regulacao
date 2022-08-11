@@ -27,6 +27,10 @@ use App\Http\Controllers\pesquisaController;
 use App\Http\Controllers\pesquisaHospSigController;
 use App\Http\Controllers\sairController;
 use App\Http\Controllers\pesquisaHospSig2Controller;
+use App\Http\Controllers\pesquisa1Controller;
+
+
+
 
 Route::get('/', function () {
     return view('home');
@@ -63,6 +67,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('confirma', encerraController::class);
     Route::resource('listar', listarMapaController::class);
     Route::resource('pesquisar', pesquisaController::class);
+    Route::resource('pesquisar1', pesquisa1Controller::class);
+
     Route::resource('sigtaphosp', pesquisaHospSigController::class);
     Route::resource('sair', sairController::class);
     Route::resource('sigtaphosp2', pesquisaHospSig2Controller::class);
